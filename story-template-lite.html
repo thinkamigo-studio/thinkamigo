@@ -12,6 +12,36 @@
     <link rel="stylesheet" href="theatre.css"> 
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    .imagemap-container {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  line-height: 0;
+}
+.imagemap-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.imagemap-overlay {
+  position: absolute;
+  background: rgba(0,84,220,0.12);
+  border: 1.5px solid rgba(0,84,220,0.5);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  display: block;
+}
+.imagemap-overlay:hover {
+  background: rgba(0,84,220,0.25);
+}
+</style>
+
+
 </head>
 
 <body class="content-page">
@@ -24,13 +54,25 @@
 <!-- Start Editorial -->  
     <main class="editorial-post">
 
- <!-- Start Cinematic Header -->  
-        <section class="story-hero-wrapper">
-            <img src="assets/img/placeholder-cinematic-1280x414-roadtrip.jpg" 
-                 alt="Digital Stories Optional Header" 
-                 class="panoramic-hero">
-        </section>
-<!-- End Cinematic Header -->  
+<div class="imagemap-container" id="imagemap-container">
+  <img
+    src="dotu-04-01.jpg"
+    alt="Interactive image map"
+    usemap="#image-map"
+    id="imagemap-img">
+  <map name="image-map" id="image-map">
+  <area
+    id="hotspot-01"
+    shape="rect"
+    data-x="81.915"
+    data-y="55.186"
+    data-w="10.638"
+    data-h="7.979"
+    href="#"
+    alt="hotspot-01"
+    title="Click here!">
+  </map>
+</div>
 
 
 <!-- Start Paper -->  
@@ -197,5 +239,56 @@
     <script src="loader.js"></script>
 <!-- End Partials and Listeners -->  
 
+<script>
+(function () {
+  var container = document.getElementById('imagemap-container');
+  var img = document.getElementById('imagemap-img');
+  var map = document.getElementById('image-map');
+
+  function positionOverlays() {
+    var w = img.offsetWidth;
+    var h = img.offsetHeight;
+
+    var old = container.querySelectorAll('.imagemap-overlay');
+    old.forEach(function (el) { el.remove(); });
+
+    var areas = map.querySelectorAll('area');
+    areas.forEach(function (area) {
+      var xPct = parseFloat(area.getAttribute('data-x'));
+      var yPct = parseFloat(area.getAttribute('data-y'));
+      var wPct = parseFloat(area.getAttribute('data-w'));
+      var hPct = parseFloat(area.getAttribute('data-h'));
+      var href = area.getAttribute('href');
+      var id   = area.getAttribute('id');
+
+      var px = Math.round(xPct / 100 * w);
+      var py = Math.round(yPct / 100 * h);
+      var pw = Math.round(wPct / 100 * w);
+      var ph = Math.round(hPct / 100 * h);
+
+      area.setAttribute('coords', px + ',' + py + ',' + (px + pw) + ',' + (py + ph));
+
+      var a = document.createElement('a');
+      a.className = 'imagemap-overlay';
+      a.setAttribute('href', href);
+      a.setAttribute('aria-label', id);
+      a.style.left   = px + 'px';
+      a.style.top    = py + 'px';
+      a.style.width  = pw + 'px';
+      a.style.height = ph + 'px';
+      container.appendChild(a);
+    });
+  }
+
+  if (img.complete) {
+    positionOverlays();
+  } else {
+    img.addEventListener('load', positionOverlays);
+  }
+
+  window.addEventListener('resize', positionOverlays);
+})();
+
+</script>
 </body>
 </html>
