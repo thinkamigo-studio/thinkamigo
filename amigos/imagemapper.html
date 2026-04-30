@@ -460,6 +460,63 @@
       padding: 9px 24px;
     }
 
+    /* ── MARKER UPLOAD ── */
+    .marker-preview {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background: var(--stone-bg);
+      border: 1px solid var(--panel-border);
+      margin-top: 8px;
+    }
+    .marker-preview img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      background: #eee;
+    }
+    .marker-preview span {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-muted);
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .marker-note {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .marker-note code {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--brand-blue);
+    }
+
+    /* ── MARKER CHECKBOX IN LIST ── */
+    .hotspot-marker-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .hotspot-marker-toggle input {
+      accent-color: var(--brand-orange);
+      cursor: pointer;
+      width: 13px;
+      height: 13px;
+    }
+    .hotspot-marker-toggle.has-marker { color: var(--brand-orange); }
+
     /* ── CODE TABS ── */
     .code-tabs {
       display: flex;
@@ -589,6 +646,20 @@
       </div>
 
       <div class="panel-section">
+        <span class="panel-label">Marker image</span>
+        <div class="marker-upload-row">
+          <label class="btn btn-ghost" for="marker-input" style="display:block; text-align:center; cursor:pointer;">Upload PNG marker</label>
+          <input type="file" id="marker-input" accept="image/png,image/gif,image/svg+xml" style="display:none">
+        </div>
+        <div class="marker-preview" id="marker-preview" style="display:none">
+          <img id="marker-thumb" alt="Marker preview">
+          <span id="marker-filename"></span>
+          <button class="hotspot-delete" id="btn-clear-marker" title="Remove marker">&#x2715;</button>
+        </div>
+        <p class="marker-note">Place this file at <code>assets/img/hotspot-marker.png</code> on your server.</p>
+      </div>
+
+      <div class="panel-section">
         <span class="panel-label">Mapping</span>
         <button class="btn btn-secondary" id="btn-add-hotspot" disabled>Add hotspot</button>
         <button class="btn btn-accent" id="btn-place-hotspot" disabled style="display:none">Place hotspot here</button>
@@ -694,6 +765,40 @@
   const btnCopy        = document.getElementById('btn-copy-code');
   const btnCloseModal  = document.getElementById('btn-close-modal');
   const modalClose     = document.getElementById('modal-close');
+  const markerInput    = document.getElementById('marker-input');
+  const markerPreview  = document.getElementById('marker-preview');
+  const markerThumb    = document.getElementById('marker-thumb');
+  const markerFilename = document.getElementById('marker-filename');
+  const btnClearMarker = document.getElementById('btn-clear-marker');
+
+  // ── MARKER UPLOAD ──
+  let markerLoaded = false;
+
+  markerInput.addEventListener('change', e => {
+    const f = e.target.files[0];
+    if (!f) return;
+    const url = URL.createObjectURL(f);
+    markerThumb.src = url;
+    markerFilename.textContent = f.name;
+    markerPreview.style.display = 'flex';
+    markerLoaded = true;
+    markerInput.value = '';
+  });
+
+  btnClearMarker.addEventListener('click', () => {
+    markerThumb.src = '';
+    markerFilename.textContent = '';
+    markerPreview.style.display = 'none';
+    markerLoaded = false;
+    // Uncheck all marker checkboxes
+    state.hotspots.forEach(hs => {
+      hs.showMarker = false;
+      const cb = document.getElementById('marker-cb-' + hs.id);
+      if (cb) cb.checked = false;
+      const label = document.getElementById('marker-toggle-' + hs.id);
+      if (label) label.classList.remove('has-marker');
+    });
+  });
 
   // ── HELPERS ──
   function padId(n) {
@@ -852,7 +957,8 @@
       xPct: toPct(pm.x, r.width),
       yPct: toPct(pm.y, r.height),
       wPct: toPct(pm.w, r.width),
-      hPct: toPct(pm.h, r.height)
+      hPct: toPct(pm.h, r.height),
+      showMarker: false
     };
 
     state.hotspots.push(hs);
@@ -1222,15 +1328,26 @@
       '<span class="hotspot-item-dot"></span>' +
       '<span class="hotspot-item-name">' + hs.id + '</span>' +
       '<span class="hotspot-item-coords" id="coords-' + hs.id + '">' + hs.xPct.toFixed(0) + '%, ' + hs.yPct.toFixed(0) + '%</span>' +
-      '<button class="hotspot-delete" data-id="' + hs.id + '" title="Delete">✕</button>';
+      '<label class="hotspot-marker-toggle" id="marker-toggle-' + hs.id + '" title="Show marker image">' +
+        '<input type="checkbox" id="marker-cb-' + hs.id + '"> marker' +
+      '</label>' +
+      '<button class="hotspot-delete" data-id="' + hs.id + '" title="Delete">&#x2715;</button>';
 
     li.addEventListener('click', e => {
       if (e.target.classList.contains('hotspot-delete')) return;
+      if (e.target.type === 'checkbox') return;
       setActive(hs.id);
     });
+
     li.querySelector('.hotspot-delete').addEventListener('click', e => {
       e.stopPropagation();
       deleteHotspot(hs.id);
+    });
+
+    li.querySelector('#marker-cb-' + hs.id).addEventListener('change', e => {
+      hs.showMarker = e.target.checked;
+      const label = document.getElementById('marker-toggle-' + hs.id);
+      label.classList.toggle('has-marker', hs.showMarker);
     });
 
     hotspotList.appendChild(li);
@@ -1307,6 +1424,18 @@
     title="${h.id}">`;
     }).join('\n');
 
+    const markers = hs.filter(h => h.showMarker).map(h => {
+      return `<img
+  src="assets/img/hotspot-marker.png"
+  class="hotspot-marker"
+  data-x="${h.xPct.toFixed(3)}"
+  data-y="${h.yPct.toFixed(3)}"
+  alt="marker"
+  aria-hidden="true">`;
+    }).join('\n');
+
+    const hasMarkers = hs.some(h => h.showMarker);
+
     generatedBlocks.html =
 `<div class="imagemap-container" id="imagemap-container">
   <img
@@ -1316,7 +1445,7 @@
     id="imagemap-img">
   <map name="image-map" id="image-map">
 ${areas}
-  </map>
+  </map>${hasMarkers ? '\n' + markers : ''}
 </div>`;
 
     generatedBlocks.css =
@@ -1344,6 +1473,20 @@ ${areas}
 }
 .imagemap-overlay:hover {
   background: rgba(0,84,220,0.25);
+}
+.hotspot-marker {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.hotspot-marker:hover {
+  opacity: 1;
+  transform: scale(1.15);
 }`;
 
     generatedBlocks.js =
@@ -1384,6 +1527,17 @@ ${areas}
       a.style.width  = pw + 'px';
       a.style.height = ph + 'px';
       container.appendChild(a);
+    });
+
+    // Position marker images by their data-x / data-y percentage attributes
+    var markers = container.querySelectorAll('.hotspot-marker');
+    markers.forEach(function (marker) {
+      var xPct = parseFloat(marker.getAttribute('data-x'));
+      var yPct = parseFloat(marker.getAttribute('data-y'));
+      var px = Math.round(xPct / 100 * w);
+      var py = Math.round(yPct / 100 * h);
+      marker.style.left = px + 'px';
+      marker.style.top  = py + 'px';
     });
   }
 
