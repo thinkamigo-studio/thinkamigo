@@ -13,12 +13,10 @@
 <style>
 /* Comic reader environment — dark surround */
 
-/* Replace stone body background with dark slate */
 body.content-page {
   background-color: #2d2d2d;
 }
 
-/* Paper sheet: transparent, 20px top margin, gap before footer */
 .paper-sheet {
   background-color: transparent;
   margin-top: 20px;
@@ -26,7 +24,6 @@ body.content-page {
   box-shadow: none;
 }
 
-/* Editorial post wrapper: match the dark ground */
 .editorial-post {
   background-color: #2d2d2d;
 }
@@ -57,6 +54,15 @@ body.content-page {
 .imagemap-overlay:hover {
   background: rgba(0,84,220,0.25);
 }
+
+/* Mobile: margin on the paper-sheet wrapper only — imagemap-container
+   stays full width of its parent so overlays stay in sync with the image */
+@media (max-width: 768px) {
+  .paper-sheet {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
 </style>
 </head>
 <body class="content-page">
@@ -84,7 +90,7 @@ body.content-page {
           data-y="55.186"
           data-w="10.638"
           data-h="7.979"
-          href="people.html"
+          href="#"
           alt="hotspot-01"
           title="Click here!">
       </map>
@@ -149,14 +155,6 @@ body.content-page {
 
   window.addEventListener('resize', positionOverlays);
 })();
-
-
-@media (max-width: 768px) {
-  .paper-sheet {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
 </script>
 
 </body>
