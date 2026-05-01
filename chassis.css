@@ -139,9 +139,9 @@ img {
 .footer-nav-col li { margin-bottom: 10px; }
 
 .footer-nav-col a { 
-    color: #ffffffb3 !important;
+    color: #ffffff !important;
     text-decoration: underline;
-    text-decoration-color: #ffffff00;
+    text-decoration-color: #8e8d8d;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
     font-size: 14px; 
