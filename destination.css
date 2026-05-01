@@ -454,7 +454,7 @@ p.breadcrumb-white a {
 }
 
 p.breadcrumb-white a:hover {
-    color: var(--brand-orange);
+    color: #ffffff;
     text-decoration: underline;
     text-decoration-color: var(--brand-orange);
     text-decoration-thickness: 3px;
