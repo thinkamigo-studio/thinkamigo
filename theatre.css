@@ -1,8 +1,10 @@
 /* ============================================================
-   THINKAMIGO THEATRE ENGINE v5.5
+   THINKAMIGO THEATRE ENGINE v5.6
    Architecture: Sovereign Cinema Environment (Grounded)
    Updates: Keyline Icon | YouTube a-tag Sync | Gallery Parity
    Functionality: #0A254A Midnight Blue | Fixed Breakout
+   v5.6: breadcrumb-white hover fixed — text stays white with
+   orange underline at 6px offset.
    ============================================================ */
 
 /* --- 1. THE MAIN STAGE (THE VOID) --- */
@@ -73,7 +75,6 @@
 
 /* --- 5. THE VIDEO CARD & INLINE FEATURES --- */
 
-/* Semantic triggers for internal and external (a-tag) video cards */
 .theatre-card, 
 a.theatre-card,
 .story-inline-video .theatre-card {
@@ -85,14 +86,12 @@ a.theatre-card,
     color: inherit !important;
 }
 
-/* Editorial Container for Story Pages */
 .story-inline-video {
     margin: 45px 0;
     width: 100%;
     display: block;
 }
 
-/* The Theatre Thumb: 16:9 Cinematic Lock */
 .theatre-thumb {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -102,7 +101,6 @@ a.theatre-card,
     border-radius: 4px;
 }
 
-/* THE SOVEREIGN ICON (Hex White with Keyline Filter) */
 .theatre-thumb::after {
     content: '';
     position: absolute;
@@ -114,24 +112,19 @@ a.theatre-card,
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
     border-left: 20px solid #FFFFFF; 
-    
-    /* KEYLINE: Ensures visibility against bright/white backgrounds */
     filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
-    
     opacity: 0.3; 
     transition: opacity 0.3s ease;
     z-index: 2;
     pointer-events: none;
 }
 
-/* Scale up for 960px rail features */
 .story-inline-video .theatre-thumb::after {
     border-top-width: 20px;
     border-bottom-width: 20px;
     border-left-width: 32px;
 }
 
-/* Universal Hover States */
 .theatre-card:hover .theatre-thumb::after {
     opacity: 1;
 }
@@ -146,13 +139,11 @@ a.theatre-card,
     transition: all 0.2s ease;
 }
 
-/* Hover Outline Handshake */
 .theatre-card:hover .theatre-thumb img {
     outline: 1px solid #BBBBBB;
     filter: brightness(1.05);
 }
 
-/* Grid Typography */
 .theatre-caption {
     padding: 18px 0 0 0;
     font-family: 'Poppins', sans-serif;
@@ -193,7 +184,7 @@ a.theatre-card,
     left: 0;
     width: 100vw;
     height: 100dvh;
-    background-color: #0A254A; /* SYNCED: Gallery Lightbox Background */
+    background-color: #0A254A;
     display: none;
     z-index: 1000000; 
     justify-content: center;
@@ -207,7 +198,6 @@ a.theatre-card,
     aspect-ratio: 16 / 9;
     background-color: #000000;
     position: relative;
-    /* Box shadow removed for clean gallery parity */
 }
 
 .projector-close {
@@ -243,8 +233,7 @@ a.theatre-card,
     }
 }
 
-
-/* --- 8. Breadcrumb --- */
+/* --- 8. BREADCRUMB --- */
 
 p.breadcrumb-white {
     margin: 0px 0 35px 0;
@@ -255,15 +244,13 @@ p.breadcrumb-white {
 
 p.breadcrumb-white a {
     color: #ffffff;
-    text-decoration: underline;
-    text-decoration-color: #ffffff40;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    transition: text-decoration-color 0.2s ease, text-decoration-thickness 0.2s ease;
+    text-decoration: none;
 }
 
 p.breadcrumb-white a:hover {
-    color: var(--brand-orange);
-    text-decoration-color: var(--brand-orange);
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #ff6600;
     text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
 }
