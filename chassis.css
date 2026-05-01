@@ -150,7 +150,7 @@ img {
 }
 
 .footer-nav-col a:hover {
-    color: var(--brand-orange) !important;
+    
     text-decoration-color: var(--brand-orange);
     text-decoration-thickness: 3px;
 }
