@@ -9,7 +9,7 @@
 
 :root {
     --brand-blue: #0054dc;
-    --brand-blue-light: #ffffff26; /* Converted from rgba(255,255,255,0.15) */
+    --brand-blue-light: #ffffff26;
     --brand-orange: #ff6600;
     --footer-bg: #0a254a;
     --white: #ffffff;
@@ -22,7 +22,6 @@ html, body {
     font-family: 'Segoe UI', Arial, Helvetica, sans-serif; background: #ffffff; 
 }
 
-/* Precision Asset Reset: Fixes 'Stone Gap' and 'Huge Margin' issues across all browsers */
 figure { 
     margin: 0; 
     padding: 0; 
@@ -31,7 +30,7 @@ figure {
 img { 
     max-width: 100%; 
     height: auto; 
-    display: block; /* Removes 4px inline-descender gap */
+    display: block;
 }
 
 .container { 
@@ -76,9 +75,11 @@ img {
     font-size: 13px;
     font-weight: 500;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .nav-links a:hover {
+    text-decoration: underline;
     text-decoration-color: var(--brand-orange);
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
@@ -121,7 +122,7 @@ img {
 }
 
 .footer-visual-col a:hover .footer-brand-mark {
-    filter: drop-shadow(0 0 15px #3385ffcc); /* Converted from rgba */
+    filter: drop-shadow(0 0 15px #3385ffcc);
 }
 
 .footer-nav-col { 
@@ -134,12 +135,15 @@ img {
 .footer-nav-col li { margin-bottom: 10px; }
 
 .footer-nav-col a { 
-    color: #ffffff !important;
+    color: #ffffffb3 !important;
     font-size: 14px; 
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
 }
 
 .footer-nav-col a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
     text-decoration-color: var(--brand-orange);
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
@@ -213,14 +217,13 @@ img {
     color: #ffffff !important;
 }
 
-/* BACK TO TOP: Lighter Grey Block (30% Opaque Hex-8) */
 .back-to-top { 
     position: fixed; 
     bottom: 250px; 
     right: 25px; 
     width: 46px; 
     height: 46px; 
-    background-color: #E0E0E04D; /* 30% Opacity */
+    background-color: #E0E0E04D;
     z-index: 9999; 
     display: none; 
     align-items: center; 
@@ -233,11 +236,10 @@ img {
 .back-to-top.show { display: flex !important; }
 
 .back-to-top:hover {
-    background-color: #E0E0E099; /* 60% Opacity */
+    background-color: #E0E0E099;
     transform: scale(1.05);
 }
 
-/* THE WHITE CHEVRON */
 .chevron-up {
     display: block;
     width: 10px;
@@ -264,9 +266,10 @@ img {
         box-sizing: border-box; 
         border-top: 1px solid #ffffff1a; 
         text-align: left;
-        text-decoration-color: #ffffff00;
+        text-decoration: none;
     }
     .nav-links a:hover {
+        text-decoration: underline;
         text-decoration-color: var(--brand-orange);
         text-decoration-thickness: 3px;
     }
