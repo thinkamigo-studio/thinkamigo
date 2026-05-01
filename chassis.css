@@ -73,7 +73,7 @@ img {
 .nav-links a {
     color: #ffffff !important;
     text-decoration: underline;
-    text-decoration-color: #ffffff00;
+    text-decoration-color: #dee6ff;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
     font-family: 'Poppins', sans-serif;
@@ -84,9 +84,8 @@ img {
 }
 
 .nav-links a:hover {
-    color: var(--brand-orange) !important;
     text-decoration-color: var(--brand-orange);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
 }
 
 /* --- 3. MOBILE TOGGLE ENGINE --- */
@@ -141,7 +140,7 @@ img {
 .footer-nav-col a { 
     color: #ffffff !important;
     text-decoration: underline;
-    text-decoration-color: #8e8d8d;
+    text-decoration-color: #dee6ff;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
     font-size: 14px; 
