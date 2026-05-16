@@ -1,10 +1,12 @@
 /* ============================================================
-   THINKAMIGO THEATRE ENGINE v5.6
+   THINKAMIGO THEATRE ENGINE v5.7
    Architecture: Sovereign Cinema Environment (Grounded)
    Updates: Keyline Icon | YouTube a-tag Sync | Gallery Parity
    Functionality: #0A254A Midnight Blue | Fixed Breakout
    v5.6: breadcrumb-white hover fixed — text stays white with
    orange underline at 6px offset.
+   v5.7: theatre-meta plain text label | res-link--private
+   greyed-out state for non-public video credits.
    ============================================================ */
 
 /* --- 1. THE MAIN STAGE (THE VOID) --- */
@@ -164,6 +166,15 @@ a.theatre-card,
     padding-top: 5px;
 }
 
+/* --- 5a. THEATRE META (type and role plain text labels) --- */
+.theatre-meta {
+    font-size: 14px;
+    color: #BBBBBB;
+    line-height: 1.45;
+    margin: 0 0 6px 0;
+}
+
+/* --- 5b. ACTION LINKS --- */
 .theatre-actions .res-link {
     font-size: 14px;
     font-weight: 600;
@@ -175,6 +186,17 @@ a.theatre-card,
 
 .theatre-card:hover .res-link {
     color: #FF6600; 
+}
+
+/* --- 5c. PRIVATE — non-public video credit, no interaction --- */
+.res-link--private {
+    font-size: 14px;
+    font-weight: 600;
+    color: #BBBBBB;
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+    display: inline-block;
 }
 
 /* --- 6. THE PROJECTOR (GLOBAL BREAKOUT & GALLERY PARITY) --- */
