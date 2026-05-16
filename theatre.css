@@ -168,8 +168,9 @@ a.theatre-card,
 
 /* --- 5a. THEATRE META (type and role plain text labels) --- */
 .theatre-meta {
-    font-size: 14px;
-    color: #BBBBBB;
+    font-size: 12px;
+    font-weight: 300;
+    color: #666666;
     line-height: 1.45;
     margin: 0 0 6px 0;
 }
