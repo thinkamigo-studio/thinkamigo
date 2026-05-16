@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress migration guide | Thinkamigo</title>
+
+    <link rel="stylesheet" href="../chassis.css">
+    <link rel="stylesheet" href="../destination.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        .guide-wrapper {
+            background-color: #f5f5ef;
+            padding: 30px 0 60px 0;
+            width: 100%;
+        }
+
+        .guide-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .guide-page-header {
+            padding: 40px 0 30px 0;
+        }
+
+        .guide-page-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            color: var(--brand-blue);
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .guide-page-header .orange-rule {
+            width: 250px;
+            height: 1px;
+            background: var(--brand-orange);
+            margin: 16px 0 18px 0;
+        }
+
+        .guide-page-header h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 200;
+            color: #191919;
+            margin: 0;
+        }
+
+        /* Intro */
+        .guide-intro {
+            background: #ffffff;
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .guide-intro p { margin: 0 0 12px 0; }
+        .guide-intro p:last-child { margin: 0; }
+
+        /* Stage blocks */
+        .guide-stage {
+            margin-bottom: 40px;
+        }
+
+        .guide-stage-header {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .guide-stage-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--brand-orange);
+        }
+
+        .guide-stage-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--brand-blue);
+            margin: 0;
+        }
+
+        .guide-stage-desc {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            color: #666666;
+        }
+
+        /* Steps */
+        .guide-steps {
+            background: #ffffff;
+            border-radius: 4px;
+            padding: 25px 30px;
+            margin-bottom: 15px;
+        }
+
+        .guide-steps h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--brand-blue);
+            margin: 0 0 12px 0;
+        }
+
+        .guide-steps ul,
+        .guide-steps ol {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0 0 16px 0;
+            padding-left: 20px;
+        }
+
+        .guide-steps ul:last-child,
+        .guide-steps ol:last-child { margin-bottom: 0; }
+
+        .guide-steps li { margin-bottom: 6px; }
+
+        .guide-steps p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0 0 12px 0;
+        }
+
+        .guide-steps p:last-child { margin: 0; }
+
+        /* Warning / critical callout */
+        .guide-callout {
+            border-left: 3px solid var(--brand-orange);
+            background: #fff8f0;
+            border-radius: 0 4px 4px 0;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        .guide-callout strong {
+            color: var(--brand-blue);
+            font-weight: 600;
+        }
+
+        /* Note callout */
+        .guide-note {
+            border-left: 3px solid var(--brand-blue);
+            background: #f0f4ff;
+            border-radius: 0 4px 4px 0;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        .guide-note strong {
+            color: var(--brand-blue);
+            font-weight: 600;
+        }
+
+        /* Content taxonomy table */
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .guide-table th {
+            background: #0054dc !important;
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        .guide-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #dddddd;
+            vertical-align: top;
+            color: #333333;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .guide-table tr:last-child td { border-bottom: none; }
+        .guide-table tr:nth-child(even) td { background: #f9f9f9; }
+
+        /* Snag list template block */
+        .guide-template {
+            background: #1a1a1a;
+            border-radius: 4px;
+            padding: 25px 30px;
+            margin-bottom: 15px;
+        }
+
+        .guide-template pre {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #bbbbbb;
+            margin: 0;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        .guide-template .tpl-comment { color: #666666; }
+        .guide-template .tpl-heading { color: #ffffff; font-weight: bold; }
+        .guide-template .tpl-item { color: #aaddaa; }
+
+        /* Paper sheet override */
+        .paper-sheet {
+            min-height: 0;
+            padding-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .guide-inner { padding: 0 20px; }
+            .guide-stage-header { flex-direction: column; gap: 4px; }
+        }
+    </style>
+</head>
+<body class="content-page amigos-protected" data-base="../">
+
+    <header id="main-nav"></header>
+
+    <main>
+        <div class="guide-wrapper">
+            <div class="guide-inner">
+
+                <header class="guide-page-header">
+                    <h1>WordPress migration guide</h1>
+                    <div class="orange-rule"></div>
+                    <h2>From WordPress to open source HTML — a reusable methodology</h2>
+                </header>
+
+                <div class="guide-intro">
+                    <p>This guide documents the four-stage methodology for migrating a WordPress site to an open source HTML, CSS and JavaScript framework. It was developed during the thinkamigo.com migration from the dreamtargets GitHub development environment.</p>
+                    <p>The methodology is reusable. For each new migration project, generate a new snag list .md file from the template at the foot of this guide and work through the stages in order. Do not skip the content audit — it is the most critical step and the one most likely to cause post-migration problems.</p>
+                </div>
+
+                <!-- STAGE 1 -->
+                <div class="guide-stage">
+                    <div class="guide-stage-header">
+                        <span class="guide-stage-number">STAGE 1</span>
+                        <span class="guide-stage-title">Page content — amends and additions</span>
+                        <span class="guide-stage-desc">Fix the pages before you move them</span>
+                    </div>
+
+                    <div class="guide-callout">
+                        <strong>Critical:</strong> Do not migrate broken or incomplete pages. Every page should be content-complete and correctly structured before migration begins.
+                    </div>
+
+                    <div class="guide-steps">
+                        <h4>For each page, check and complete:</h4>
+                        <ul>
+                            <li>OG metadata block — full header including canonical URL, og:title, og:description, og:image, Twitter card tags</li>
+                            <li>OG image — 1200×630px, page-specific variant or branded default fallback</li>
+                            <li>Page title — consistent format: "Page name | Site name"</li>
+                            <li>Breadcrumb — present and correct</li>
+                            <li>All links — no `#` placeholders, no broken hrefs</li>
+                            <li>All images — captions, alt text, correct file paths</li>
+                            <li>All CTAs — PDF downloads, external links, play buttons functional</li>
+                            <li>Content — up to date, aligned with current brand and proposition</li>
+                        </ul>
+
+                        <h4>Global checks across all pages:</h4>
+                        <ul>
+                            <li>Create one branded OG default image for pages without a specific variant</li>
+                            <li>Sitemap.xml — create or update for new site structure</li>
+                            <li>robots.txt — create or update</li>
+                            <li>404 page — create a branded error page</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-note">
+                        <strong>Note:</strong> Canonical URLs in OG metadata should point to the destination domain (e.g. thinkamigo.com), not the development environment. Update these before migration, not after.
+                    </div>
+                </div>
+
+                <!-- STAGE 2 -->
+                <div class="guide-stage">
+                    <div class="guide-stage-header">
+                        <span class="guide-stage-number">STAGE 2</span>
+                        <span class="guide-stage-title">Content audit</span>
+                        <span class="guide-stage-desc">Classify every piece of WordPress content before touching anything</span>
+                    </div>
+
+                    <div class="guide-callout">
+                        <strong>Critical:</strong> Crawl the live WordPress site with Screaming Frog before doing anything else. This gives you a complete map of every URL, status code, redirect chain, page title and meta description. These are real assets. Losing indexed URLs without 301 redirects will damage search visibility — sometimes permanently.
+                    </div>
+
+                    <div class="guide-steps">
+                        <h4>Step 1 — Crawl with Screaming Frog</h4>
+                        <ol>
+                            <li>Run Screaming Frog against the live WordPress site</li>
+                            <li>Export the full URL list — all status codes, page titles, meta descriptions, redirect chains</li>
+                            <li>Filter to 200 status codes only — these are your live pages</li>
+                            <li>This is your master URL inventory and redirect priority list</li>
+                        </ol>
+
+                        <h4>Step 2 — Classify every URL</h4>
+                        <p>Every piece of WordPress content falls into one of four categories:</p>
+                    </div>
+
+                    <table class="guide-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Case study</strong></td>
+                                <td>Documented project work. Established rankings. High value. Prioritise in redirect map.</td>
+                                <td>Create equivalent page in new framework or confirm existing page covers content. Set up 301 redirect. Do not let return a 404.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Blog post</strong></td>
+                                <td>Opinion, commentary, news. Lower Google value. Editorial content.</td>
+                                <td>Migrate to Substack, archive, or redirect to nearest equivalent page. Never redirect to homepage.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Substack candidate</strong></td>
+                                <td>Thought pieces, essays, methodology content. Belongs on Substack going forward.</td>
+                                <td>Republish on Substack first, then set up 301 redirect from old WordPress URL to Substack equivalent.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Archive / retire</strong></td>
+                                <td>Outdated, superseded or low-value content. Not indexed or negligible traffic.</td>
+                                <td>Let expire gracefully or redirect to nearest relevant page. Do not migrate.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="guide-steps">
+                        <h4>Step 3 — Build the redirect map</h4>
+                        <ul>
+                            <li>Document every old WordPress URL and its destination in the project snag list</li>
+                            <li>All redirects must be 301 (permanent) not 302 (temporary)</li>
+                            <li>Never redirect to the homepage — always use the nearest relevant page</li>
+                            <li>Test every redirect after implementation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- STAGE 3 -->
+                <div class="guide-stage">
+                    <div class="guide-stage-header">
+                        <span class="guide-stage-number">STAGE 3</span>
+                        <span class="guide-stage-title">Pre-migration technical tasks</span>
+                        <span class="guide-stage-desc">Prepare the environment before go-live</span>
+                    </div>
+
+                    <div class="guide-steps">
+                        <h4>Path resolution</h4>
+                        <p>The Thinkamigo framework uses automatic environment detection in loader.js. The base path is set by hostname — no find and replace needed between development and production environments.</p>
+                        <ul>
+                            <li>Confirm loader.js v23.8 or later is in use — environment detection is automatic</li>
+                            <li>No data-base attribute changes needed on body tags</li>
+                            <li>No find and replace in header.html or footer.html</li>
+                        </ul>
+
+                        <h4>Canonical URLs</h4>
+                        <ul>
+                            <li>Update all canonical URLs in OG metadata from development domain to destination domain</li>
+                            <li>Update all og:url values throughout</li>
+                            <li>Do this before uploading — not after</li>
+                        </ul>
+
+                        <h4>WordPress backup</h4>
+                        <ul>
+                            <li>Back up the full WordPress database</li>
+                            <li>Back up all WordPress files including uploads folder</li>
+                            <li>Store backup off-server before decommissioning</li>
+                            <li>Do not delete WordPress until the new site is fully tested and live</li>
+                        </ul>
+
+                        <h4>Redirect implementation</h4>
+                        <ul>
+                            <li>Implement all 301 redirects from the redirect map built in Stage 2</li>
+                            <li>Typically implemented in .htaccess (Apache) or nginx config</li>
+                            <li>Test all redirects in staging before go-live</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- STAGE 4 -->
+                <div class="guide-stage">
+                    <div class="guide-stage-header">
+                        <span class="guide-stage-number">STAGE 4</span>
+                        <span class="guide-stage-title">Migration and go-live</span>
+                        <span class="guide-stage-desc">Sequential, testable, reversible</span>
+                    </div>
+
+                    <div class="guide-callout">
+                        <strong>Critical:</strong> Do not decommission WordPress until the new site is fully tested on the live domain. Keep WordPress accessible until you are confident everything is working correctly.
+                    </div>
+
+                    <div class="guide-steps">
+                        <h4>Go-live sequence</h4>
+                        <ol>
+                            <li>Upload all new files to the live server</li>
+                            <li>Verify DNS is pointing correctly to new hosting</li>
+                            <li>Test all pages on the live domain — do not assume development testing is sufficient</li>
+                            <li>Test all authentication flows (e.g. /amigos/ gate and guard) on the live domain</li>
+                            <li>Test all video projector and lightbox functionality</li>
+                            <li>Test all forms and enquiry submissions</li>
+                            <li>Test all 301 redirects from old WordPress URLs</li>
+                            <li>Check all OG metadata renders correctly — use Facebook Sharing Debugger and Twitter Card Validator</li>
+                            <li>Decommission WordPress installation</li>
+                            <li>Submit updated sitemap.xml to Google Search Console</li>
+                            <li>Monitor Google Search Console for crawl errors for at least 30 days post-migration</li>
+                        </ol>
+
+                        <h4>Post-migration monitoring</h4>
+                        <ul>
+                            <li>Check Google Search Console weekly for the first month</li>
+                            <li>Watch for 404 errors — these indicate missed redirects</li>
+                            <li>Watch for coverage drops — these indicate indexing problems</li>
+                            <li>Fix any issues within 48 hours of discovery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SNAG LIST TEMPLATE -->
+                <div class="guide-stage">
+                    <div class="guide-stage-header">
+                        <span class="guide-stage-number">TEMPLATE</span>
+                        <span class="guide-stage-title">Project snag list template</span>
+                        <span class="guide-stage-desc">Copy this to a new .md file for each migration project</span>
+                    </div>
+
+                    <div class="guide-note">
+                        <strong>Usage:</strong> Copy the template below into a new Obsidian .md file named <code>[client-name]-snaglist.md</code>. Work through the four stages in order, ticking off tasks as they are completed.
+                    </div>
+
+                    <div class="guide-template">
+                        <pre><span class="tpl-comment"># [Client name] — Migration snag list
+
+**Version:** 1.0
+**Created:** YYYY-MM-DD
+**From:** https://[wordpress-domain]/
+**To:** https://[destination-domain]/
+
+---
+
+</span><span class="tpl-heading">## 1. Page content — amends and additions
+
+### [page].html
+</span><span class="tpl-item">- [ ] OG metadata block — add full header
+- [ ] OG image — create [page]-og.jpg at 1200×630
+- [ ] [Add page-specific items here]
+
+---
+</span>
+<span class="tpl-heading">## 2. Content audit — case studies and blog posts
+</span><span class="tpl-item">- [ ] Crawl WordPress site with Screaming Frog — export full URL inventory
+- [ ] Classify every URL — case study / blog post / Substack / archive
+- [ ] Build redirect map
+- [ ] Set up 301 redirects
+
+**Redirect map:**
+| Old URL | New URL | Category |
+|---------|---------|----------|
+| /old-path/ | /new-path/ | Case study |
+
+---
+</span>
+<span class="tpl-heading">## 3. Pre-migration technical tasks
+</span><span class="tpl-item">- [ ] Confirm loader.js v23.8 or later — environment detection automatic
+- [ ] Update all canonical URLs to destination domain
+- [ ] Back up WordPress database and files
+- [ ] Implement 301 redirects
+
+---
+</span>
+<span class="tpl-heading">## 4. Migration and go-live
+</span><span class="tpl-item">- [ ] Upload all files to live server
+- [ ] Verify DNS
+- [ ] Test all pages on live domain
+- [ ] Test all authentication flows
+- [ ] Test all video and lightbox functionality
+- [ ] Test all forms
+- [ ] Test all 301 redirects
+- [ ] Check OG metadata rendering
+- [ ] Decommission WordPress
+- [ ] Submit sitemap to Google Search Console
+- [ ] Monitor Search Console for 30 days
+
+---
+
+*Version history*
+- v1.0 — YYYY-MM-DD — Initial snag list</span></pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="../loader.js"></script>
+
+</body>
+</html>
