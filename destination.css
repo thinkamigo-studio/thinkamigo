@@ -1,11 +1,12 @@
 /* ============================================================
-   THINKAMIGO DESTINATION ENGINE v4.25
+   THINKAMIGO DESTINATION ENGINE v4.26
    Architecture: 1250px Horizon | 960px Editorial Rail
    Updates: Refined Fixed-Width Form Sandbox (450px/750px)
    Features: SATURATION LOCK (#0054dc), Signature Style Sync
    v4.24: Breadcrumb and links-section hover behaviour refined.
    Breadcrumb-white specificity fix for theatre environment.
    v4.25: Inline link hover — text stays blue, orange underline.
+   v4.26: publication-meta class added for publication card credits.
    ============================================================ */
 
 :root {
@@ -571,8 +572,7 @@ p.breadcrumb-white a:hover,
 }
 
 /* ============================================================
-   16. INLINE BULLET LIST -     REMOVED list-style: none;
-
+   16. INLINE BULLET LIST - REMOVED list-style: none;
    ============================================================ */
 
 .bullet-section {
@@ -610,4 +610,18 @@ p.breadcrumb-white a:hover,
     text-decoration-color: var(--brand-orange);
     text-decoration-thickness: 3px;
     text-underline-offset: 6px;
+}
+
+/* ============================================================
+   17. PUBLICATION META CREDITS
+   Small label text for publisher, role, extent and format
+   on publication cards and gallery items.
+   ============================================================ */
+
+.publication-meta {
+    font-size: 13px;
+    font-weight: 300;
+    color: #888888;
+    line-height: 1.7;
+    margin: 6px 0 12px 0;
 }
