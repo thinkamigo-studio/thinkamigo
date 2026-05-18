@@ -618,7 +618,9 @@ p.breadcrumb-white a:hover,
    on publication cards and gallery items.
    ============================================================ */
 
-.publication-meta {
+.resource-caption .publication-meta,
+.resource-card .publication-meta,
+.gallery-item .publication-meta {
     font-size: 13px;
     font-weight: 300;
     color: #888888;
