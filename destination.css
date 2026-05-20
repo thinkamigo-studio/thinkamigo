@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO DESTINATION ENGINE v4.28
+   THINKAMIGO DESTINATION ENGINE v4.29
    Architecture: 1250px Horizon | 960px Editorial Rail
    Updates: Refined Fixed-Width Form Sandbox (450px/750px)
    Features: SATURATION LOCK (#0054dc), Signature Style Sync
@@ -8,7 +8,8 @@
    v4.25: Inline link hover -- text stays blue, orange underline.
    v4.26: publication-meta class added for publication card credits.
    v4.27: Breadcrumb chevron added via CSS ::before. Reverted.
-   v4.28: Breadcrumb < character added via ::before, grey #888888.
+   v4.28: Breadcrumb < character added via ::before, grey #888888. Reverted.
+   v4.29: Breadcrumb < removed from CSS. Plain text in HTML only. Not a link.
    ============================================================ */
 
 :root {
@@ -427,7 +428,7 @@ blockquote + p {
    Use on second-level pages and deeper with no cinematic hero.
    Do not use on top-level pages (Consulting, Storytelling etc)
    that use the panoramic hero image.
-   < character generated via CSS ::before -- no HTML changes needed.
+   < is plain text in the HTML before the <a> tag. Not a link. No ::before needed.
    ============================================================ */
 
 p.breadcrumb {
@@ -442,11 +443,6 @@ p.breadcrumb a {
     text-decoration: none;
 }
 
-p.breadcrumb a::before {
-    content: "<";
-    color: #888888;
-    margin-right: 4px;
-}
 
 p.breadcrumb a:hover {
     color: var(--brand-blue);
@@ -468,11 +464,6 @@ p.breadcrumb-white a {
     text-decoration: none;
 }
 
-p.breadcrumb-white a::before {
-    content: "<";
-    color: #bbbbbb;
-    margin-right: 4px;
-}
 
 p.breadcrumb-white a:hover,
 .text-rail p.breadcrumb-white a:hover {
