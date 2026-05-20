@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO DESTINATION ENGINE v4.26
+   THINKAMIGO DESTINATION ENGINE v4.27
    Architecture: 1250px Horizon | 960px Editorial Rail
    Updates: Refined Fixed-Width Form Sandbox (450px/750px)
    Features: SATURATION LOCK (#0054dc), Signature Style Sync
@@ -7,6 +7,8 @@
    Breadcrumb-white specificity fix for theatre environment.
    v4.25: Inline link hover — text stays blue, orange underline.
    v4.26: publication-meta class added for publication card credits.
+   v4.27: Breadcrumb chevron added via CSS ::before. No HTML
+   changes required. Applies to both breadcrumb and breadcrumb-white.
    ============================================================ */
 
 :root {
@@ -425,6 +427,7 @@ blockquote + p {
    Use on second-level pages and deeper with no cinematic hero.
    Do not use on top-level pages (Consulting, Storytelling etc)
    that use the panoramic hero image.
+   Chevron generated via CSS ::before — no HTML changes needed.
    ============================================================ */
 
 p.breadcrumb {
@@ -437,6 +440,14 @@ p.breadcrumb {
 p.breadcrumb a {
     color: var(--brand-blue);
     text-decoration: none;
+}
+
+p.breadcrumb a::before {
+    content: "\2039\00A0";
+    font-size: 18px;
+    font-weight: 600;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 p.breadcrumb a:hover {
@@ -457,6 +468,14 @@ p.breadcrumb-white {
 p.breadcrumb-white a {
     color: #ffffff;
     text-decoration: none;
+}
+
+p.breadcrumb-white a::before {
+    content: "\2039\00A0";
+    font-size: 18px;
+    font-weight: 600;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 p.breadcrumb-white a:hover,
@@ -516,7 +535,7 @@ p.breadcrumb-white a:hover,
     margin-top: 0;
 }
 
-/* ── collaborator gallery cards ── */
+/* -- collaborator gallery cards -- */
 
 .biog-collab-card {
     display: block;
@@ -552,7 +571,7 @@ p.breadcrumb-white a:hover,
     color: var(--brand-orange);
 }
 
-/* ── responsive ── */
+/* -- responsive -- */
 
 @media (max-width: 768px) {
     .biog-portrait,
