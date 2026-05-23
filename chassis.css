@@ -1,8 +1,11 @@
 /* ============================================================
-   THINKAMIGO CHASSIS v6.4 - GLOBAL SHELL
+   THINKAMIGO CHASSIS v6.5 - GLOBAL SHELL
    Architecture: 1250px Grid | 3-Col Footer | UI Components
    Updates: Added Global Figure Reset & Image Block Logic
    Rules: STRICT HEX-ONLY (Converted all RGB/RGBA to Hex-8)
+   v6.5: Removed background: #ffffff from html, body reset.
+         White body background was bleeding below footer.
+         Added margin: 0 to #main-footer to seal footer edge.
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -19,7 +22,7 @@
 /* --- 1. CORE RESET --- */
 html, body { 
     margin: 0; padding: 0; width: 100%; overflow-x: hidden; 
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif; background: #ffffff; 
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
 }
 
 figure { 
@@ -99,7 +102,8 @@ img {
 #main-footer { 
     background-color: var(--footer-bg) !important; color: #ffffff !important; 
     padding: 60px 0 0px !important; width: 100% !important; 
-    display: block !important; clear: both; 
+    display: block !important; clear: both;
+    margin: 0;
 }
 
 .footer-full-logo { width: 100% !important; max-width: 1150px; height: auto !important; display: block; margin: 0 auto; }
