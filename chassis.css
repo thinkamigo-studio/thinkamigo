@@ -1,11 +1,13 @@
 /* ============================================================
-   THINKAMIGO CHASSIS v6.5 - GLOBAL SHELL
+   THINKAMIGO CHASSIS v6.6 - GLOBAL SHELL
    Architecture: 1250px Grid | 3-Col Footer | UI Components
    Updates: Added Global Figure Reset & Image Block Logic
    Rules: STRICT HEX-ONLY (Converted all RGB/RGBA to Hex-8)
    v6.5: Removed background: #ffffff from html, body reset.
          White body background was bleeding below footer.
          Added margin: 0 to #main-footer to seal footer edge.
+   v6.6: padding-bottom: 20px added to .footer-bottom.
+         Seals background around footer-address margin.
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -207,6 +209,10 @@ img {
 .icon-instagram { background-image: url('assets/img/icon-instagram.png'); }
 
 .footer-address { text-align: center; color: #ffffff80; font-size: 13px; margin-top: 20px; }
+
+.footer-bottom {
+    padding-bottom: 20px;
+}
 
 /* --- 5. UI COMPONENTS --- */
 
