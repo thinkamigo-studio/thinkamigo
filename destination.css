@@ -72,7 +72,7 @@ body.content-page {
 /* Use on feature pages with links-section-mesh at the foot. */
 /* Removes default padding-bottom so mesh sits flush above footer. */
 .paper-sheet-feature {
-    padding-bottom: 0;
+    padding-bottom: 20;
 }
 
 /* 5. THE TEXT RAIL */
