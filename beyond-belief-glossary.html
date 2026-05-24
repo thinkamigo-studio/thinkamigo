@@ -98,6 +98,28 @@
                         <area shape="rect" coords="411,405,548,540" href="#y" alt="Y">
                         <area shape="rect" coords="548,405,685,540" href="#z" alt="Z">
                     </map>
+                    <script>
+                        (function() {
+                            var img = document.querySelector('img[usemap="#glossary-map"]');
+                            var areas = document.querySelectorAll('map[name="glossary-map"] area');
+                            var origW = 960, origH = 540;
+                            var origCoords = Array.from(areas).map(function(a) {
+                                return a.getAttribute('coords').split(',').map(Number);
+                            });
+                            function scaleMap() {
+                                var scaleX = img.offsetWidth / origW;
+                                var scaleY = img.offsetHeight / origH;
+                                areas.forEach(function(area, i) {
+                                    area.setAttribute('coords', origCoords[i].map(function(c, j) {
+                                        return Math.round(c * (j % 2 === 0 ? scaleX : scaleY));
+                                    }).join(','));
+                                });
+                            }
+                            img.addEventListener('load', scaleMap);
+                            window.addEventListener('resize', scaleMap);
+                            if (img.complete) scaleMap();
+                        })();
+                    </script>
                 </div>
 
                 <header>
