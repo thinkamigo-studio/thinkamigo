@@ -80,8 +80,10 @@
                     .alpha-nav a { text-decoration: none; border-bottom: 2px solid transparent; padding: 0.4rem 0.5rem; }
                     .alpha-nav a:visited { color: #0054dc; }
                     .alpha-nav a:hover { border-bottom: 2px solid #ff6600; }
+                    .alpha-spacer { display: none; }
                     @media (max-width: 600px) {
                         .alpha-nav a { width: calc(100% / 7); text-align: center; padding: 0.6rem 0; }
+                        .alpha-spacer { display: inline-block; }
                     }
                 </style>
                 <div class="alpha-nav">
@@ -111,8 +113,8 @@
                     <a href="#x">X</a>
                     <a href="#y">Y</a>
                     <a href="#z">Z</a>
-                    <span style="visibility: hidden; width: calc(100% / 7);">&nbsp;</span>
-                    <span style="visibility: hidden; width: calc(100% / 7);">&nbsp;</span>
+                    <span class="alpha-spacer" style="visibility: hidden; width: calc(100% / 7);">&nbsp;</span>
+                    <span class="alpha-spacer" style="visibility: hidden; width: calc(100% / 7);">&nbsp;</span>
                 </div>
 
                 <div id="a" class="story-inline-cutup">
