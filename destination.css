@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO DESTINATION ENGINE v4.31
+   THINKAMIGO DESTINATION ENGINE v4.32
    Architecture: 1250px Horizon | 960px Editorial Rail
    Updates: Refined Fixed-Width Form Sandbox (450px/750px)
    Features: SATURATION LOCK (#0054dc), Signature Style Sync
@@ -15,6 +15,9 @@
           Text rail sits inside for content alignment.
    v4.31: paper-sheet-feature modifier added. Sets padding-bottom: 0
           for feature pages using links-section-mesh.
+   v4.32: Beyond Belief card grid added. Thumbnail grid for eZine
+          landing pages. Used on beyond-belief.html and similar
+          ThinkCREATE indexes.
    ============================================================ */
 
 :root {
@@ -663,5 +666,95 @@ p.breadcrumb-white a:hover,
     min-height: 360px;
     padding: 0;
     margin-bottom: -80px;
+}
 
+/* ============================================================
+   19. BEYOND BELIEF CARD GRID
+   Thumbnail grid for eZine landing pages.
+   Used on beyond-belief.html and similar ThinkCREATE indexes.
+   Two sections: ThinkCREATE (blue top border) and external
+   Sillitoe Trail links (grey top border). Both turn orange
+   on hover. View link pinned to bottom of each card.
+   ============================================================ */
+
+.beyond-belief-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+}
+
+.bb-card {
+    background: #f5f5ef;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.bb-card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background: #dddddd;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    transition: outline-color 0.2s ease;
+}
+
+.bb-card:hover .bb-card-thumb { outline-color: #0054dc; }
+
+.bb-card.external:hover .bb-card-thumb { outline-color: #0054dc; }
+
+.bb-card-body {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bb-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.3;
+    margin-bottom: 6px;
+}
+
+.bb-card-byline {
+    font-size: 0.75rem;
+    color: #888888;
+    margin-bottom: 12px;
+}
+
+.bb-card-summary {
+    font-size: 0.85rem;
+    color: #555555;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+}
+
+.bb-card-view {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0054dc;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #ededed;
+}
+
+.bb-card:hover .bb-card-view { color: #ff6600; }
+
+.bb-card.external .bb-card-view { color: #888888; }
+
+.bb-card.external:hover .bb-card-view { color: #ff6600; }
+
+@media (max-width: 768px) {
+    .beyond-belief-grid {
+        grid-template-columns: 1fr;
+    }
 }
