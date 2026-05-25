@@ -1,78 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="version" content="DIGITAL CONSULTING VERSION 5.0 - CLEAN CSS SYNC">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Thinkamigo</title>
-    
-    <link rel="stylesheet" href="chassis.css">
-    <link rel="stylesheet" href="home-portal.css">
-    <link rel="stylesheet" href="destination.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="version" content="Contact v1.1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Thinkamigo</title>
+<link rel="stylesheet" href="chassis.css">
+<link rel="stylesheet" href="home-portal.css">
+<link rel="stylesheet" href="destination.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body class="content-page">
-
-    <header id="main-nav"></header>
-
-    <main class="editorial-post">
-        
-        <div class="paper-sheet">
-
-            <article class="text-rail">
-
-
-
-                <p class="breadcrumb">
-                    <a href="index.html">Home</a> 
-                </p>
-
-
-                <header>
-                    <h1>Contact</h1>
-                    <div class="orange-rule"></div>
-                    <h2>Tell me about your requirements</h2>
-                </header>
-
-                <form action="contact-engine.php" method="POST" class="contact-form-refined">
-                    
-                    <div class="hp-gate" style="display:none;">
-                        <label>Keep this field blank</label>
-                        <input type="text" name="honeypot">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="How can I help?"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-pill">
-                        Send Message
-                    </button>
-                </form>
-
-            </article> 
-
-
-    <!-- Open Graph -->
-            <div class="links-section-mesh">
-
-            </div>
-    <!-- End Open Graph -->
-
-
-
-        </div> 
-    </main> 
-    
-    <footer id="main-footer"></footer>
-    <script src="loader.js"></script>
-
+<header id="main-nav"></header>
+<main class="editorial-post">
+<div class="paper-sheet">
+<article class="text-rail">
+<p class="breadcrumb">
+<a href="index.html">Home</a> 
+</p>
+<header>
+<h1>Contact</h1>
+<div class="orange-rule"></div>
+<h2>Tell me about your requirements</h2>
+</header>
+<form action="https://formspree.io/f/xpqnjnoj" method="POST" class="contact-form-refined">
+<input type="text" name="_gotcha" style="display:none;">
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" required placeholder="your@email.com">
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" name="message" required placeholder="How can I help?"></textarea>
+</div>
+<button type="submit" class="btn-pill">
+                        Send message
+</button>
+</form>
+</article> 
+<div class="links-section-mesh">
+</div>
+</div> 
+</main> 
+<footer id="main-footer"></footer>
+<script src="loader.js"></script>
 </body>
 </html>
