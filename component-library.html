@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="version" content="Thinkamigo component library v1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component library | Thinkamigo</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="../chassis.css">
+    <link rel="stylesheet" href="../destination.css">
+    <link rel="stylesheet" href="../gallery.css">
+    <link rel="stylesheet" href="../theatre.css">
+    <link rel="stylesheet" href="../audio-player.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        .component-label {
+            background: #0054dc;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 12px;
+            margin: 60px 0 0 0;
+            display: inline-block;
+        }
+        .component-divider {
+            border: none;
+            border-top: 2px dashed #0054dc;
+            margin: 8px 0 32px 0;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body class="content-page">
+
+    <header id="main-nav"></header>
+
+    <main class="editorial-post">
+
+
+        <!-- ============================================================
+             COMPONENT: CINEMATIC HERO
+             Use on ThinkCREATE pages. Image: 1280x414px.
+             markup: <section class="story-hero-wrapper"><img class="panoramic-hero"></section>
+             ============================================================ -->
+
+        <p class="component-label">Cinematic hero - 1280x414px</p>
+        <hr class="component-divider">
+
+        <section class="story-hero-wrapper">
+            <img src="https://placehold.co/1280x414/0054dc/ffffff?text=Cinematic+hero+1280x414px"
+                 alt="Cinematic hero placeholder"
+                 class="panoramic-hero">
+        </section>
+
+        <!-- END: CINEMATIC HERO -->
+
+
+        <div class="paper-sheet paper-sheet-feature">
+            <article class="text-rail">
+
+
+                <!-- ============================================================
+                     COMPONENT: BREADCRUMB
+                     Plain link only. No chevron. No ::before.
+                     ============================================================ -->
+
+                <p class="component-label">Breadcrumb</p>
+                <hr class="component-divider">
+
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a>
+                </p>
+
+                <!-- END: BREADCRUMB -->
+
+
+                <!-- ============================================================
+                     COMPONENT: PAGE HEADER
+                     H1 in brand blue. Orange rule 250px wide. H2 in charcoal light weight.
+                     Use "Feature - Author, Month Year" or "ThinkCREATE - Author, Month Year"
+                     ============================================================ -->
+
+                <p class="component-label">Page header</p>
+                <hr class="component-divider">
+
+                <header>
+                    <h1>Page title in sentence case</h1>
+                    <div class="orange-rule"></div>
+                    <h2>Feature - Paul Fillingham, May 2026</h2>
+                </header>
+
+                <!-- END: PAGE HEADER -->
+
+
+                <!-- ============================================================
+                     COMPONENT: LEAD INLINE IMAGE
+                     Always image-001. Dimensions: 960x540px.
+                     Border is on the wrapper, not the img element.
+                     ============================================================ -->
+
+                <p class="component-label">Lead inline image - 960x540px</p>
+                <hr class="component-divider">
+
+                <div class="story-inline-image">
+                    <img src="https://placehold.co/960x540/f5f5ef/0054dc?text=Lead+image+960x540px"
+                         alt="Lead image placeholder"
+                         width="960" height="540">
+                    <div class="stone-caption">
+                        Caption text sits here in the stone-caption div below the image.
+                    </div>
+                </div>
+
+                <!-- END: LEAD INLINE IMAGE -->
+
+
+                <!-- ============================================================
+                     COMPONENT: BODY TEXT
+                     18px, 1.65 line height. Standard paragraph flow.
+                     ============================================================ -->
+
+                <p class="component-label">Body text</p>
+                <hr class="component-divider">
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <!-- END: BODY TEXT -->
+
+
+                <!-- ============================================================
+                     COMPONENT: H3 SECTION HEADING
+                     24px, brand blue, 600 weight. 60px top margin.
+                     ============================================================ -->
+
+                <p class="component-label">H3 section heading</p>
+                <hr class="component-divider">
+
+                <h3>Section heading in sentence case</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                <!-- END: H3 SECTION HEADING -->
+
+
+                <!-- ============================================================
+                     COMPONENT: BLOCKQUOTE
+                     Max width 640px. Blue left border. Curly quotes via CSS.
+                     Only include <footer> if attribution exists.
+                     ============================================================ -->
+
+                <p class="component-label">Blockquote</p>
+                <hr class="component-divider">
+
+                <blockquote>
+                    <p>This is a pull quote. It uses large type, light weight, and curly quotes added automatically by CSS.</p>
+                    <footer>Attribution - only include this line if attribution exists</footer>
+                </blockquote>
+
+                <p>Body text continues after the blockquote with no top margin gap.</p>
+
+                <!-- END: BLOCKQUOTE -->
+
+
+                <!-- ============================================================
+                     COMPONENT: SUBSEQUENT INLINE IMAGE
+                     Same as lead image but continues numbering from image-002.
+                     ============================================================ -->
+
+                <p class="component-label">Subsequent inline image - 960x540px</p>
+                <hr class="component-divider">
+
+                <div class="story-inline-image">
+                    <img src="https://placehold.co/960x540/f5f5ef/ff6600?text=Inline+image+960x540px"
+                         alt="Inline image placeholder"
+                         width="960" height="540">
+                    <div class="stone-caption">
+                        Caption text for subsequent inline image.
+                    </div>
+                </div>
+
+                <!-- END: SUBSEQUENT INLINE IMAGE -->
+
+
+                <!-- ============================================================
+                     COMPONENT: GALLERY GRID 3-UP
+                     Thumbnails: 640x360px. Full size lightbox: 1280x720px.
+                     data-gallery groups images into a single lightbox sequence.
+                     Gallery starts at image-002 if lead image is image-001.
+                     ============================================================ -->
+
+                <p class="component-label">Gallery grid - 3 up</p>
+                <hr class="component-divider">
+
+                <div class="gallery-grid-3">
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/640x360/191919/ffffff?text=Gallery+image+1"
+                             alt="Gallery image 1"
+                             data-full="https://placehold.co/1280x720/191919/ffffff?text=Full+size+1"
+                             data-gallery="gallery-demo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/640x360/191919/ffffff?text=Gallery+image+2"
+                             alt="Gallery image 2"
+                             data-full="https://placehold.co/1280x720/191919/ffffff?text=Full+size+2"
+                             data-gallery="gallery-demo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/640x360/191919/ffffff?text=Gallery+image+3"
+                             alt="Gallery image 3"
+                             data-full="https://placehold.co/1280x720/191919/ffffff?text=Full+size+3"
+                             data-gallery="gallery-demo">
+                    </div>
+                </div>
+
+                <!-- END: GALLERY GRID 3-UP -->
+
+
+                <!-- ============================================================
+                     COMPONENT: GALLERY GRID - PORTRAIT 4-UP
+                     For portrait format images. Aspect ratio 2:3 enforced by CSS.
+                     Thumbnails: any portrait image, CSS handles cropping.
+                     Full size lightbox: any size.
+                     data-gallery groups images into a single lightbox sequence.
+                     ============================================================ -->
+
+                <p class="component-label">Gallery grid - portrait 4 up</p>
+                <hr class="component-divider">
+
+                <div class="gallery-portrait-4">
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/640x360/191919/ffffff?text=Portrait+1"
+                             alt="Portrait image 1"
+                             data-full="https://placehold.co/480x720/191919/ffffff?text=Full+portrait+1"
+                             data-gallery="portrait-demo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/640x360/191919/ffffff?text=Portrait+2"
+                             alt="Portrait image 2"
+                             data-full="https://placehold.co/480x720/191919/ffffff?text=Full+portrait+2"
+                             data-gallery="portrait-demo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/640x360/191919/ffffff?text=Portrait+3"
+                             alt="Portrait image 3"
+                             data-full="https://placehold.co/480x720/191919/ffffff?text=Full+portrait+3"
+                             data-gallery="portrait-demo">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/640x360/191919/ffffff?text=Portrait+4"
+                             alt="Portrait image 4"
+                             data-full="https://placehold.co/480x720/191919/ffffff?text=Full+portrait+4"
+                             data-gallery="portrait-demo">
+                    </div>
+                </div>
+
+                <!-- END: GALLERY GRID - PORTRAIT 4-UP -->
+
+
+                <!-- ============================================================
+                     COMPONENT: INLINE VIDEO - THEATRE CARD
+                     data-video accepts: Vimeo ID, YouTube URL, or local .mp4 path.
+                     Thumbnail: 960x540px. theatre.css must be linked in <head>.
+                     ============================================================ -->
+
+                <p class="component-label">Inline video - theatre card</p>
+                <hr class="component-divider">
+
+                <div class="story-inline-video">
+                    <div class="theatre-card" data-video="76979871">
+                        <div class="theatre-thumb">
+                            <img src="https://placehold.co/960x540/0a254a/ffffff?text=Video+thumbnail+960x540px"
+                                 alt="Video placeholder">
+                        </div>
+                    </div>
+                    <div class="stone-caption">
+                        Video caption text sits here.
+                    </div>
+                </div>
+
+                <!-- END: INLINE VIDEO - THEATRE CARD -->
+
+
+                <!-- ============================================================
+                     COMPONENT: AUDIO PLAYER
+                     Requires audio-player.css in <head>.
+                     album-art: square image, any size.
+                     data-src: path to MP3 file.
+                     data-title: track name shown in the LED display.
+                     ============================================================ -->
+
+                <p class="component-label">Audio player</p>
+                <hr class="component-divider">
+
+                <h3>Listen</h3>
+                <p>Add an intro sentence here about what the listener will hear.</p>
+
+                <div class="audio-playlist-container">
+                    <div class="album-header">
+                        <img src="https://placehold.co/200x200/191919/ffffff?text=Album+art"
+                             class="album-art"
+                             alt="Album art">
+                        <div class="album-meta">
+                            <h2 class="short-description" style="margin:0; border:none; padding:0; font-size: 1.2rem;">Album title</h2>
+                            <p style="margin:0; color: #666; font-family: 'Poppins';">Artist or EP name</p>
+                        </div>
+                    </div>
+
+                    <div class="audio-controls">
+                        <button class="play-pause" id="masterPlayBtn"></button>
+
+                        <div class="track-info">
+                            <div class="led-title-row">
+                                <span id="now-playing">Select a track</span>
+                            </div>
+
+                            <div class="progress-container" style="background: #333; height: 4px; width: 100%; position: relative;">
+                                <div id="master-progress" class="progress-bar" style="background: #ff6600; height: 100%; width: 0%;"></div>
+                            </div>
+
+                            <div class="led-time-row" style="display: flex; justify-content: space-between; margin-top: 5px;">
+                                <span id="master-time" class="time-display">00:00</span>
+                                <span id="master-duration" class="time-display">00:00</span>
+                            </div>
+                        </div>
+
+                        <audio id="main-audio-engine" src=""></audio>
+                    </div>
+
+                    <ul class="tracklist">
+                        <li class="track-item" data-src="/media/track-01.mp3" data-title="Track one title">
+                            <span class="track-number">01</span> Track one title
+                        </li>
+                        <li class="track-item" data-src="/media/track-02.mp3" data-title="Track two title">
+                            <span class="track-number">02</span> Track two title
+                        </li>
+                        <li class="track-item" data-src="/media/track-03.mp3" data-title="Track three title">
+                            <span class="track-number">03</span> Track three title
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- END: AUDIO PLAYER -->
+
+
+
+                 Always at the bottom of feature pages.
+                 paper-sheet-feature class removes default padding-bottom
+                 so mesh sits flush. HR rule separates body from mesh.
+                 ============================================================ -->
+
+            <p class="component-label" style="margin-left: 5%;">Links section - mesh footer</p>
+            <hr class="component-divider" style="margin: 8px 5% 0;">
+
+            <hr style="border: 0; border-top: 1px solid #ededed; margin: 0; width: 100%;">
+
+            <div class="links-section-mesh">
+                <article class="text-rail">
+                    <section class="links-section">
+                        <h2>Links</h2>
+                        <ul>
+                            <li><a href="https://thinkamigo.com" target="_blank">Thinkamigo</a></li>
+                            <li><a href="https://thinkamigo.com" target="_blank">Second link example</a></li>
+                            <li><a href="https://thinkamigo.com" target="_blank">Third link example</a></li>
+                        </ul>
+                    </section>
+                </article>
+            </div>
+
+            <!-- END: LINKS SECTION WITH MESH FOOTER -->
+
+
+        </div>
+
+
+        <!-- ============================================================
+             COMPONENT: BEYOND BELIEF CARD GRID
+             For eZine landing pages. Two variants:
+             Internal: class="bb-card" - blue top border
+             External: class="bb-card external" - grey top border
+             Both turn orange on hover.
+             ============================================================ -->
+
+        <div style="background: #fff; max-width: 1250px; margin: 0 auto; padding: 40px 5%;">
+
+            <p class="component-label">Beyond Belief card grid</p>
+            <hr class="component-divider">
+
+            <div class="beyond-belief-grid">
+
+                <a href="#" class="bb-card">
+                    <img src="https://placehold.co/960x540/0054dc/ffffff?text=Internal+card+thumbnail"
+                         alt="Internal card"
+                         class="bb-card-thumb">
+                    <div class="bb-card-body">
+                        <div class="bb-card-title">Beyond Belief: Internal card title</div>
+                        <div class="bb-card-byline">Paul Fillingham</div>
+                        <div class="bb-card-summary">One or two sentence summary of the article. Enough to tell the reader what they will find if they click through.</div>
+                        <div class="bb-card-view">View</div>
+                    </div>
+                </a>
+
+                <a href="#" class="bb-card external" target="_blank">
+                    <img src="https://placehold.co/960x540/888888/ffffff?text=External+card+thumbnail"
+                         alt="External card"
+                         class="bb-card-thumb">
+                    <div class="bb-card-body">
+                        <div class="bb-card-title">External link card title</div>
+                        <div class="bb-card-byline">Adrian Reynolds</div>
+                        <div class="bb-card-summary">External links use the grey top border and class="bb-card external". Add target="_blank" to open in a new tab.</div>
+                        <div class="bb-card-view">View</div>
+                    </div>
+                </a>
+
+                <a href="#" class="bb-card">
+                    <img src="https://placehold.co/960x540/0054dc/ffffff?text=Third+card+thumbnail"
+                         alt="Third card"
+                         class="bb-card-thumb">
+                    <div class="bb-card-body">
+                        <div class="bb-card-title">Beyond Belief: Third card example</div>
+                        <div class="bb-card-byline">Paul Fillingham and Adrian Reynolds</div>
+                        <div class="bb-card-summary">View link is always pinned to the bottom of the card regardless of summary length. The flex layout handles this automatically.</div>
+                        <div class="bb-card-view">View</div>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- END: BEYOND BELIEF CARD GRID -->
+
+
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="../loader.js"></script>
+
+</body>
+</html>
