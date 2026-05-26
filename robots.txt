@@ -1,0 +1,20 @@
+# ============================================================
+# thinkamigo.com - robots.txt
+# ============================================================
+
+User-agent: *
+
+# Private studio area - block all crawlers
+Disallow: /amigos/
+
+# WordPress legacy paths - no longer present but block just in case
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /xmlrpc.php
+Disallow: /feed/
+Disallow: /comments/feed/
+
+# Canonical sitemap location
+Sitemap: https://thinkamigo.com/sitemap.xml
