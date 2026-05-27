@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="version" content="Thinkamigo component library v2.1">
+    <meta name="version" content="Thinkamigo component library v3.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Component library | Thinkamigo</title>
     <meta name="robots" content="noindex, nofollow">
 
-    <!-- PAGE-SPECIFIC -->
+    <!-- ============================================================
+         OPEN GRAPH AND TWITTER META - COPY THIS BLOCK TO NEW PAGES
+         PAGE-SPECIFIC - replace these values
+         ============================================================ -->
     <meta property="og:url"         content="https://thinkamigo.com/page-name.html">
     <meta property="og:title"       content="Page title | Thinkamigo">
     <meta property="og:description" content="Description 120-160 chars.">
@@ -41,247 +44,140 @@
     <link rel="stylesheet" href="../audio-player.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        .zone-label {
-            font-family: 'Poppins', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #ffffff;
-            background: #0054dc;
-            display: inline-block;
-            padding: 3px 8px;
-            margin: 48px 0 0 0;
-        }
-        .component-label {
-            font-family: 'Poppins', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #ffffff;
-            background: #888888;
-            display: inline-block;
-            padding: 3px 8px;
-            margin: 32px 0 8px 0;
-        }
-        .component-rule {
-            border: none;
-            border-top: 1px dashed #cccccc;
-            margin: 0 0 24px 0;
-        }
-        .zone-rule {
-            border: none;
-            margin: 4px 0 24px 0;
-            display: block;
-            width: 100%;
-            height: 20px;
-            background: none;
-        }
-        .zone-rule::before {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 20px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='20' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cmarker id='al' viewBox='0 0 10 10' refX='1' refY='5' markerWidth='6' markerHeight='6' orient='auto'%3E%3Cpath d='M8 1L2 5L8 9' fill='none' stroke='%230054dc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/marker%3E%3Cmarker id='ar' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='6' markerHeight='6' orient='auto'%3E%3Cpath d='M2 1L8 5L2 9' fill='none' stroke='%230054dc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='10' y1='10' x2='99%25' y2='10' stroke='%230054dc' stroke-width='1' marker-start='url(%23al)' marker-end='url(%23ar)'/%3E%3C/svg%3E");
-        }
-        .phase2-label {
-            font-family: 'Poppins', sans-serif;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #ffffff;
-            background: #ff6600;
-            display: inline-block;
-            padding: 3px 8px;
-            margin: 32px 0 8px 0;
-        }
-        .phase2-placeholder {
-            border: 2px dashed #ff6600;
-            padding: 24px;
-            margin: 0 0 32px 0;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            color: #ff6600;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body class="content-page">
 
     <!-- ============================================================
          NAVIGATION ZONE - TOP
+         Zone: Navigation
          header.html injected by loader.js into #main-nav
-         Full width - no HTML needed on content pages
+         No HTML needed on content pages
          ============================================================ -->
 
     <header id="main-nav"></header>
-
-    <!-- END: NAVIGATION ZONE - TOP -->
 
 
     <main class="editorial-post">
 
 
         <!-- ============================================================
-             ZONE 1 - CINEMATIC HEADER
-             Outside the paper sheet. 1280x414px panoramic image.
-             Optional - use only when page requires a full-width opening image.
-             Remove this block when using inline lead image or no image.
+             CINEMATIC HEADER
+             Zone: 1 - outside the paper sheet
+             Dimensions: 1280x414px
+             CSS class: .story-hero-wrapper > img.panoramic-hero
+             Optional - use when page requires a full-width opening image
+             Remove when using inline lead image or no image
              ============================================================ -->
 
-        <p class="zone-label">Zone 1 - Cinematic header</p>
-        <p class="component-label">Cinematic header - 1280x414px</p>
-        <hr class="component-rule">
-
         <section class="story-hero-wrapper">
-            <img src="https://placehold.co/1280x414/0054dc/ffffff?text=Zone+1+Cinematic+header+1280x414px"
+            <img src="https://placehold.co/1280x414/0054dc/ffffff?text=Cinematic+header+1280x414px"
                  alt="Cinematic header placeholder"
                  class="panoramic-hero">
         </section>
 
-        <!-- END: ZONE 1 - CINEMATIC HEADER -->
-
 
         <div class="paper-sheet paper-sheet-feature">
-
-
-            <!-- ============================================================
-                 ZONE 2 - CONTENT CONTAINER (text-rail)
-                 Inside the paper sheet. 960px max width.
-                 All standard content components live here.
-                 ============================================================ -->
-
             <article class="text-rail">
-
-                <p class="zone-label">Zone 2 - Content container</p>
-                <hr class="component-rule" style="margin-bottom: 32px;">
 
 
                 <!-- ============================================================
-                     COMPONENT: BREADCRUMB
+                     BREADCRUMB
+                     Zone: 2 - content container
                      Plain link only. No chevron. No ::before pseudo element.
+                     CSS class: p.breadcrumb > a
                      ============================================================ -->
-
-                <p class="component-label">Breadcrumb</p>
-                <hr class="component-rule">
 
                 <p class="breadcrumb">
                     <a href="../index.html">Home</a>
                 </p>
 
-                <!-- END: BREADCRUMB -->
-
 
                 <!-- ============================================================
-                     COMPONENT: PAGE HEADER
-                     H1 - 48px, brand blue #0054dc, font-weight 600
-                     Orange rule - 250px wide, 1px, brand orange #ff6600
-                     H2 - 28px, charcoal #191919, font-weight 200
-                       Use for subtitle line: "Feature - Month Year"
-                     Byline - 20px, weight 300, grey #777777
+                     PAGE HEADER
+                     Zone: 2 - content container
+                     H1: 48px, brand blue #0054dc, font-weight 600
+                     Orange rule: 250px wide, 1px, brand orange #ff6600
+                     H2: 28px, charcoal #191919, font-weight 200
+                       Use for subtitle line only e.g. "Feature - Month Year"
+                     Byline: 20px, weight 300, grey #777777
                        Use <p class="byline"> for author and name credits
-                       NOT H2 - H2 is too large for name credits
+                       NOT H2 - H2 is reserved for the subtitle line only
+                       Exception: people pages may use H2 differently
                      ============================================================ -->
-
-                <p class="component-label">Page header - H1, orange rule, H2, byline</p>
-                <hr class="component-rule">
 
                 <header>
-                    <h1>H1 - Page title in sentence case</h1>
+                    <h1>Page title in sentence case</h1>
                     <div class="orange-rule"></div>
-                    <h2>H2 - Feature subtitle line, Month Year</h2>
-                    <p class="byline">Byline - Paul Fillingham and Adrian Reynolds</p>
+                    <h2>Feature - Month Year</h2>
+                    <p class="byline">Paul Fillingham and Adrian Reynolds</p>
                 </header>
 
-                <!-- END: PAGE HEADER -->
-
 
                 <!-- ============================================================
-                     COMPONENT: H3 SECTION HEADING
-                     24px, brand blue #0054dc, font-weight 600
-                     60px top margin. Use for sections within body content.
+                     H3 SECTION HEADING
+                     Zone: 2 - content container
+                     24px, brand blue #0054dc, font-weight 600, 60px top margin
+                     Use for sections within body content
                      ============================================================ -->
 
-                <p class="component-label">H3 section heading</p>
-                <hr class="component-rule">
-
-                <h3>H3 - Section heading in sentence case</h3>
-
-                <p>Body text follows immediately after H3 with no top margin gap. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                <!-- END: H3 SECTION HEADING -->
+                <h3>Section heading in sentence case</h3>
 
 
                 <!-- ============================================================
-                     COMPONENT: BODY TEXT
+                     BODY TEXT
+                     Zone: 2 - content container
                      18px, line-height 1.65, colour #333, margin-bottom 24px
                      ============================================================ -->
-
-                <p class="component-label">Body text</p>
-                <hr class="component-rule">
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                <!-- END: BODY TEXT -->
-
 
                 <!-- ============================================================
-                     COMPONENT: BLOCKQUOTE
+                     BLOCKQUOTE
+                     Zone: 2 - content container
                      Max width 640px. Blue left border 4px.
                      Curly quotes added automatically by CSS.
                      Only include <footer> if attribution exists.
                      ============================================================ -->
 
-                <p class="component-label">Blockquote</p>
-                <hr class="component-rule">
-
                 <blockquote>
-                    <p>This is a pull quote. It uses large type, light weight, and curly quotes added automatically by CSS. Use sparingly for significant quotations.</p>
+                    <p>This is a pull quote. It uses large type, light weight, and curly quotes added automatically by CSS.</p>
                     <footer>Attribution - only include this line if attribution exists</footer>
                 </blockquote>
 
                 <p>Body text continues after the blockquote with no top margin gap.</p>
 
-                <!-- END: BLOCKQUOTE -->
-
 
                 <!-- ============================================================
-                     COMPONENT: LEAD INLINE IMAGE
-                     Always image-001. Dimensions: 960x540px.
-                     Border is on the .story-inline-image wrapper, not the img.
-                     First element inside content container after breadcrumb
+                     LEAD INLINE IMAGE
+                     Zone: 2 - content container
+                     Dimensions: 960x540px JPG
+                     Named: page-name-image-001.jpg
+                     Always image-001. First element after breadcrumb
                      when not using a cinematic header.
+                     Border is on .story-inline-image wrapper, not the img.
                      ============================================================ -->
-
-                <p class="component-label">Lead inline image - 960x540px (image-001)</p>
-                <hr class="component-rule">
 
                 <div class="story-inline-image">
                     <img src="https://placehold.co/960x540/f5f5ef/0054dc?text=Lead+image+960x540px+(image-001)"
                          alt="Lead image placeholder"
                          width="960" height="540">
                     <div class="stone-caption">
-                        Caption text sits here in the stone-caption div below the image.
+                        Caption text sits in the stone-caption div below the image.
                     </div>
                 </div>
 
-                <!-- END: LEAD INLINE IMAGE -->
-
 
                 <!-- ============================================================
-                     COMPONENT: SUBSEQUENT INLINE IMAGE
-                     Same as lead image. Continues numbering from image-002.
+                     SUBSEQUENT INLINE IMAGE
+                     Zone: 2 - content container
+                     Dimensions: 960x540px JPG
+                     Named: page-name-image-002.jpg incrementing
+                     Same structure as lead image, continues numbering.
                      ============================================================ -->
-
-                <p class="component-label">Subsequent inline image - 960x540px (image-002+)</p>
-                <hr class="component-rule">
 
                 <div class="story-inline-image">
                     <img src="https://placehold.co/960x540/f5f5ef/ff6600?text=Inline+image+960x540px+(image-002)"
@@ -292,19 +188,16 @@
                     </div>
                 </div>
 
-                <!-- END: SUBSEQUENT INLINE IMAGE -->
-
 
                 <!-- ============================================================
-                     COMPONENT: GALLERY GRID - LANDSCAPE 3-UP
+                     GALLERY GRID - LANDSCAPE 3-UP
+                     Zone: 2 - content container
                      Thumbnails: 640x360px JPG
-                     Full size lightbox: 1280x720px JPG
+                     Full size lightbox: 1280x720px JPG named image-002-full.jpg
                      data-gallery groups images into one lightbox sequence.
                      Clicking thumbnail opens lightbox overlay (Zone 4).
+                     Gallery starts at image-002 if lead image is image-001.
                      ============================================================ -->
-
-                <p class="component-label">Gallery grid - landscape 3-up (thumbnails 640x360px)</p>
-                <hr class="component-rule">
 
                 <div class="gallery-grid-3">
                     <div class="gallery-item">
@@ -327,19 +220,15 @@
                     </div>
                 </div>
 
-                <!-- END: GALLERY GRID - LANDSCAPE 3-UP -->
-
 
                 <!-- ============================================================
-                     COMPONENT: GALLERY GRID - PORTRAIT 4-UP
-                     Thumbnails: dimensions TBC when first comic reader is built.
-                     CSS enforces 2:3 aspect ratio automatically via object-fit.
-                     Full size lightbox: TBC.
+                     GALLERY GRID - PORTRAIT 4-UP
+                     Zone: 2 - content container
+                     Thumbnails: dimensions TBC when first comic reader is built
+                     CSS enforces 2:3 aspect ratio automatically via object-fit
+                     Full size lightbox: TBC
                      data-gallery groups images into one lightbox sequence.
                      ============================================================ -->
-
-                <p class="component-label">Gallery grid - portrait 4-up (dimensions TBC)</p>
-                <hr class="component-rule">
 
                 <div class="gallery-portrait-4">
                     <div class="gallery-item">
@@ -368,19 +257,15 @@
                     </div>
                 </div>
 
-                <!-- END: GALLERY GRID - PORTRAIT 4-UP -->
-
 
                 <!-- ============================================================
-                     COMPONENT: AUDIO PLAYER
-                     Requires audio-player.css in <head>.
-                     album-art: square image, any size.
-                     data-src: path to MP3 file.
-                     data-title: track name shown in the LED display.
+                     AUDIO PLAYER
+                     Zone: 2 - content container
+                     Requires audio-player.css in <head>
+                     album-art: square image, any size
+                     data-src: path to MP3 file
+                     data-title: track name shown in LED display
                      ============================================================ -->
-
-                <p class="component-label">Audio player</p>
-                <hr class="component-rule">
 
                 <h3>Listen</h3>
                 <p>Add an intro sentence here about what the listener will hear.</p>
@@ -424,19 +309,15 @@
                     </ul>
                 </div>
 
-                <!-- END: AUDIO PLAYER -->
-
 
                 <!-- ============================================================
-                     COMPONENT: BEYOND BELIEF CARD GRID
-                     For eZine landing pages.
-                     Internal cards: class="bb-card" - blue top hover border
-                     External links: class="bb-card external" - grey, opens in new tab
-                     View link pinned to bottom of each card by flexbox.
+                     BEYOND BELIEF CARD GRID
+                     Zone: 2 - content container
+                     Thumbnail dimensions: 640x360px JPG
+                     Internal cards: class="bb-card"
+                     External links: class="bb-card external" + target="_blank"
+                     View link pinned to card bottom by flexbox automatically
                      ============================================================ -->
-
-                <p class="component-label">Beyond Belief card grid</p>
-                <hr class="component-rule">
 
                 <div class="beyond-belief-grid">
 
@@ -447,7 +328,7 @@
                         <div class="bb-card-body">
                             <div class="bb-card-title">Beyond Belief: Internal card title</div>
                             <div class="bb-card-byline">Paul Fillingham</div>
-                            <div class="bb-card-summary">One or two sentence summary of the article. Enough to tell the reader what they will find if they click through to the full page.</div>
+                            <div class="bb-card-summary">One or two sentence summary of the article. Enough to tell the reader what they will find if they click through.</div>
                             <div class="bb-card-view">View</div>
                         </div>
                     </a>
@@ -459,7 +340,7 @@
                         <div class="bb-card-body">
                             <div class="bb-card-title">External link card title</div>
                             <div class="bb-card-byline">Adrian Reynolds</div>
-                            <div class="bb-card-summary">External links use class="bb-card external" and target="_blank". Grey hover border distinguishes from internal links.</div>
+                            <div class="bb-card-summary">External links use class="bb-card external" and target="_blank". Grey border distinguishes from internal links.</div>
                             <div class="bb-card-view">View</div>
                         </div>
                     </a>
@@ -471,54 +352,33 @@
                         <div class="bb-card-body">
                             <div class="bb-card-title">Beyond Belief: Third card example</div>
                             <div class="bb-card-byline">Paul Fillingham and Adrian Reynolds</div>
-                            <div class="bb-card-summary">View link is always pinned to the bottom of the card regardless of summary length. Flexbox handles this automatically.</div>
+                            <div class="bb-card-summary">View link always pins to the card bottom regardless of summary length. Flexbox handles this automatically.</div>
                             <div class="bb-card-view">View</div>
                         </div>
                     </a>
 
                 </div>
 
-                <!-- END: BEYOND BELIEF CARD GRID -->
 
             </article>
 
-            <!-- END: ZONE 2 - CONTENT CONTAINER -->
-
 
             <!-- ============================================================
-                 ZONE 3 - FULL WIDTH ELEMENTS
-                 Inside the paper sheet, outside the content container.
-                 1250px max width - spans the full paper sheet.
+                 FULL WIDTH HORIZONTAL RULE
+                 Zone: 3 - inside paper sheet, outside content container
+                 Always precedes the links section mesh footer
                  ============================================================ -->
-
-            <p class="zone-label" style="margin-left: 5%; margin-top: 48px;">Zone 3 - Full width elements</p>
-            <hr class="zone-rule" style="margin: 8px 5% 0;">
-
-
-            <!-- ============================================================
-                 COMPONENT: FULL WIDTH HORIZONTAL RULE
-                 Sits between content container and mesh footer.
-                 Always use this rule before .links-section-mesh.
-                 ============================================================ -->
-
-            <p class="component-label" style="margin-left: 5%;">Full width horizontal rule</p>
-            <hr class="component-rule" style="margin-left: 5%; margin-right: 5%;">
 
             <hr style="border: 0; border-top: 1px solid #ededed; margin: 0; width: 100%;">
 
-            <!-- END: FULL WIDTH HORIZONTAL RULE -->
-
 
             <!-- ============================================================
-                 COMPONENT: LINKS SECTION MESH FOOTER
-                 Always at the bottom of feature pages.
-                 paper-sheet-feature class on the paper sheet removes
-                 default padding-bottom so mesh sits flush.
+                 LINKS SECTION MESH FOOTER
+                 Zone: 3 - inside paper sheet, outside content container
+                 paper-sheet-feature class on paper sheet removes default
+                 padding-bottom so mesh sits flush above footer
                  Structure: .links-section-mesh > .text-rail > .links-section
                  ============================================================ -->
-
-            <p class="component-label" style="margin-left: 5%;">Links section - mesh footer</p>
-            <hr class="component-rule" style="margin-left: 5%; margin-right: 5%;">
 
             <div class="links-section-mesh">
                 <article class="text-rail">
@@ -533,68 +393,31 @@
                 </article>
             </div>
 
-            <!-- END: LINKS SECTION MESH FOOTER -->
-
-
-            <!-- ============================================================
-                 PHASE 2 - AUDIO CARD (Zone 3)
-                 Audio only version of the video theatre card layout.
-                 To be built for houdiniwindow.com development.
-                 ============================================================ -->
-
-            <p class="phase2-label" style="margin-left: 5%;">Phase 2 - Audio card (Zone 3)</p>
-            <div class="phase2-placeholder" style="margin: 8px 5% 32px;">
-                Audio card component - audio only version of the video theatre card.<br>
-                To be built during houdiniwindow.com development.
-            </div>
-
-            <!-- END: PHASE 2 - AUDIO CARD -->
-
-
-            <!-- END: ZONE 3 - FULL WIDTH ELEMENTS -->
-
 
         </div>
 
 
         <!-- ============================================================
-             ZONE 4 - INJECTED BY LOADER.JS
-             No HTML needed on content pages.
-             loader.js injects these overlays automatically.
-             ============================================================ -->
-
-        <!-- ZONE 4 COMPONENTS:
-
-             Lightbox overlay
-             Triggered by clicking any img with data-full attribute.
-             Injected into <body> by loader.js when page loads.
-             No HTML needed.
-
-             Video projector overlay
-             Triggered by clicking a .theatre-card element.
-             Injected into footer.html.
-             No HTML needed.
-
-             Phase 2 - Audio theatre overlay (houdiniwindow.com)
-             Full viewport audio player equivalent of the video projector.
-             To be built during houdiniwindow.com development.
-        -->
-
-        <!-- END: ZONE 4 - INJECTED BY LOADER.JS -->
+             ZONE 4 - INJECTED BY LOADER.JS - NO HTML NEEDED
+             Lightbox overlay: triggered by img with data-full attribute
+             Video projector overlay: triggered by .theatre-card click
+             Both injected automatically by loader.js
+             Phase 2 - Audio theatre overlay: to be built for houdiniwindow.com
+        ============================================================ -->
 
 
     </main>
 
+
     <!-- ============================================================
          NAVIGATION ZONE - FOOTER
+         Zone: Navigation
          footer.html injected by loader.js into #main-footer
-         Full width - no HTML needed on content pages
+         No HTML needed on content pages
          ============================================================ -->
 
     <footer id="main-footer"></footer>
     <script src="../loader.js"></script>
-
-    <!-- END: NAVIGATION ZONE - FOOTER -->
 
 </body>
 </html>
