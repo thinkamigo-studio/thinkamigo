@@ -10,23 +10,25 @@
     <meta name="author" content="Paul Fillingham">
     <link rel="canonical" href="https://thinkamigo.com/page-name.html">
 
-    <meta property="og:type"        content="article">
-    <meta property="og:site_name"   content="Thinkamigo">
+    <!-- PAGE-SPECIFIC -->
     <meta property="og:url"         content="https://thinkamigo.com/page-name.html">
     <meta property="og:title"       content="Page title | Thinkamigo">
     <meta property="og:description" content="Description 120-160 chars.">
-    <meta property="og:image"       content="https://thinkamigo.com/assets/img/og/thinkamigo-design-intelligence-og.jpg">
-    <meta property="og:image:width"  content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"   content="Thinkamigo - Paul Fillingham, Award-winning Digital Producer">
-    <meta property="og:locale"      content="en_GB">
-
-    <meta property="article:author"         content="Paul Fillingham">
     <meta property="article:published_time" content="YYYY-MM-DDT00:00:00+00:00">
     <meta property="article:modified_time"  content="YYYY-MM-DDT00:00:00+00:00">
     <meta property="article:section"        content="Storytelling">
     <meta property="article:tag"            content="Tag one">
     <meta property="article:tag"            content="Tag two">
+
+    <!-- GENERIC - do not change -->
+    <meta property="og:type"        content="article">
+    <meta property="og:site_name"   content="Thinkamigo">
+    <meta property="og:image"       content="https://thinkamigo.com/assets/img/og/thinkamigo-design-intelligence-og.jpg">
+    <meta property="og:image:width"  content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt"   content="Thinkamigo - Paul Fillingham, Award-winning Digital Producer">
+    <meta property="og:locale"      content="en_GB">
+    <meta property="article:author" content="Paul Fillingham">
 
     <meta name="twitter:card"        content="summary_large_image">
     <meta name="twitter:site"        content="@thinkamigo">
@@ -39,6 +41,8 @@
     <link rel="stylesheet" href="chassis.css">
     <link rel="stylesheet" href="destination.css">
     <link rel="stylesheet" href="gallery.css">
+    <!-- Add theatre.css only if page contains inline video -->
+    <!-- <link rel="stylesheet" href="theatre.css"> -->
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -49,12 +53,37 @@
 
     <main class="editorial-post">
 
+
+        <!-- ============================================================
+             OPTION 1: CINEMATIC HEADER - 1280x414px
+             Use for pages that need a full-width panoramic opening image.
+             Remove this block if using inline lead image or no image.
+             ============================================================ -->
+
+        <!--
+        <section class="story-hero-wrapper">
+            <img src="/assets/img/page-name-hero.jpg"
+                 alt="Description"
+                 class="panoramic-hero">
+        </section>
+        -->
+
+        <!-- END OPTION 1: CINEMATIC HEADER -->
+
+
         <div class="paper-sheet paper-sheet-feature">
             <article class="text-rail">
 
                 <p class="breadcrumb">
                     <a href="index.html">Home</a>
                 </p>
+
+
+                <!-- ============================================================
+                     OPTION 2: INLINE LEAD IMAGE - 960x540px (DEFAULT)
+                     First element inside text-rail after breadcrumb.
+                     Remove this block if using cinematic header or no image.
+                     ============================================================ -->
 
                 <div class="story-inline-image">
                     <img src="/assets/img/page-name-image-001.jpg"
@@ -64,6 +93,16 @@
                         Caption text.
                     </div>
                 </div>
+
+                <!-- END OPTION 2: INLINE LEAD IMAGE -->
+
+
+                <!-- ============================================================
+                     OPTION 3: NO IMAGE
+                     Remove both image blocks above and start with the header.
+                     Used for pages like publications.html and video.html.
+                     ============================================================ -->
+
 
                 <header>
                     <h1>Page title in sentence case</h1>
