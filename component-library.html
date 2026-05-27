@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="version" content="Thinkamigo component library v2.0">
+    <meta name="version" content="Thinkamigo component library v2.1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Component library | Thinkamigo</title>
     <meta name="robots" content="noindex, nofollow">
@@ -48,11 +48,11 @@
             font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             color: #ffffff;
             background: #0054dc;
             display: inline-block;
-            padding: 4px 10px;
+            padding: 3px 8px;
             margin: 48px 0 0 0;
         }
         .component-label {
@@ -74,8 +74,18 @@
         }
         .zone-rule {
             border: none;
-            border-top: 2px solid #0054dc;
-            margin: 8px 0 0 0;
+            margin: 4px 0 24px 0;
+            display: block;
+            width: 100%;
+            height: 20px;
+            background: none;
+        }
+        .zone-rule::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='20' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cmarker id='al' viewBox='0 0 10 10' refX='1' refY='5' markerWidth='6' markerHeight='6' orient='auto'%3E%3Cpath d='M8 1L2 5L8 9' fill='none' stroke='%230054dc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/marker%3E%3Cmarker id='ar' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='6' markerHeight='6' orient='auto'%3E%3Cpath d='M2 1L8 5L2 9' fill='none' stroke='%230054dc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/marker%3E%3C/defs%3E%3Cline x1='10' y1='10' x2='99%25' y2='10' stroke='%230054dc' stroke-width='1' marker-start='url(%23al)' marker-end='url(%23ar)'/%3E%3C/svg%3E");
         }
         .phase2-label {
             font-family: 'Poppins', sans-serif;
@@ -149,7 +159,7 @@
             <article class="text-rail">
 
                 <p class="zone-label">Zone 2 - Content container</p>
-                <hr class="zone-rule" style="margin-bottom: 32px;">
+                <hr class="component-rule" style="margin-bottom: 32px;">
 
 
                 <!-- ============================================================
