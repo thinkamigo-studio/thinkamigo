@@ -13,8 +13,12 @@
           to sit side by side instead of stacking vertically.
           All remaining !important instances removed from base
           rules to prevent similar cascade conflicts.
-   v1.68: Tweaked ipad breakpoint from 1024 to 1080
-        
+   v1.68: Replaced gap with margin-bottom on .hero-logotype
+          in the 1080px media query. flex gap not reliably
+          supported on older iOS Safari - same root cause as
+          the hamburger gap fix in chassis.css v6.7.
+          Breakpoint raised from 1024px to 1080px to ensure
+          iPad Mini landscape is cleanly inside the override.
    ============================================================ */
 
 /* --- 1. THE BRANDING INTRO BAR --- */
@@ -176,11 +180,11 @@
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        gap: 15px; 
         padding: 0 20px; 
     }
     .hero-logotype { 
         width: 100%;
+        margin-bottom: 20px;
     }
     .hero-logotype img {
         margin: 0 auto;
