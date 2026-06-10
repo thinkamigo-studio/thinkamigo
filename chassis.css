@@ -243,7 +243,7 @@ img {
     right: 25px; 
     width: 46px; 
     height: 46px; 
-    background-color: #E0E0E04D;
+    background-color: #E0E0E099;
     z-index: 9999; 
     display: none; 
     align-items: center; 
@@ -256,8 +256,7 @@ img {
 .back-to-top.show { display: flex !important; }
 
 .back-to-top:hover {
-    background-color: #E0E0E099;
-    transform: scale(1.05);
+    background-color: #ff6600;
 }
 
 .chevron-up {
