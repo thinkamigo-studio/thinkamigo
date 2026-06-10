@@ -1,8 +1,13 @@
 /* ============================================================
-   THINKAMIGO UNIFIED LOADER & INJECTOR v23.7
+   THINKAMIGO UNIFIED LOADER & INJECTOR v23.8
    Architecture: Triple-Slot Filmstrip + Sovereign Projector
    Updates: Footer-First Handshake | story-inline-video Sync
             Amigos Authentication Module | External Link Fix | Lock Removed
+   v23.8: Apple iPad Mini Safari Bug Fix. On iOS Safari, position: fixed
+          elements render offset from the viewport when the page has scrolled.
+          Fix: window.scrollTo(0, 0) called before no-scroll class is applied
+          and before the lightbox overlay is made visible. Order is critical -
+          scroll first, lock second, show third. Chrome on iOS unaffected.
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -249,8 +254,14 @@ document.addEventListener('DOMContentLoaded', () => {
             track.style.transition = 'none';
             track.style.transform = 'translateX(-33.33%)';
             prepareSlots();
-            overlay.style.display = 'flex';
+
+            // --- APPLE IPAD MINI SAFARI BUG FIX ---
+            // On iOS Safari, position: fixed elements render offset from the
+            // viewport when the page has scrolled. Scroll to top first, apply
+            // the scroll lock second, show the overlay third. Order is critical.
+            window.scrollTo(0, 0);
             document.body.classList.add('no-scroll');
+            overlay.style.display = 'flex';
         });
 
         nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate(1); });
