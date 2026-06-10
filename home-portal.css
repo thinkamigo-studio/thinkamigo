@@ -1,7 +1,12 @@
 /* ============================================================
-   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.65)
+   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.66)
    Covers: Branding Bar, Stone/Sand Grids, Card Engine
    Architecture: 1250px Wide Horizon | 15px Universal Rhythm
+   v1.66: Branding bar flex fix. align-items: stretch on
+          .branding-flex at 1024px breakpoint. Logo image
+          centred via margin: 0 auto with max-width: 400px.
+          Fixes logo undersizing on all tablet and mobile
+          devices across all browsers.
    ============================================================ */
 
 /* --- 1. THE BRANDING INTRO BAR --- */
@@ -56,8 +61,8 @@
 }
 
 .pill-contact-btn:hover { 
-    background-color: rgba(255, 255, 255, 0.15) !important; 
-    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }
 
 /* --- 2. THE DUAL GRID WRAPPERS (UNIVERSAL 15PX RHYTHM) --- */
@@ -110,9 +115,8 @@
 }
 
 /* --- 4. SPECIFIC CARD TYPOGRAPHY --- */
-.featured-card .card-content h2 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 500;color: var(--brand-blue); margin: 0 0 10px 0; }
-.featured-card .card-content h3 { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 300;
-margin: 0 0 15px 0; color: #333; }
+.featured-card .card-content h2 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 500; color: var(--brand-blue); margin: 0 0 10px 0; }
+.featured-card .card-content h3 { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 300; margin: 0 0 15px 0; color: #333; }
 .featured-card .card-content p { font-family: 'Poppins', sans-serif; font-size: 16px; margin: 0 0 15px 0; color: #333; line-height: 1.5; }
 
 .service-card h3, .blog-card h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 600; margin: 0 0 10px 0; color: var(--brand-blue); }
@@ -127,7 +131,7 @@ margin: 0 0 15px 0; color: #333; }
 /* --- 6. AWARDS PANEL (15PX SYNC) --- */
 .awards-full-width-wrapper { 
     background-color: #f5f5ef; 
-    padding: 60px 0; /* Maintains breathing room for the footer logos */
+    padding: 60px 0;
     width: 100%; 
     clear: both; 
 }
@@ -147,9 +151,9 @@ margin: 0 0 15px 0; color: #333; }
 
 /* --- 7. BACK TO TOP / SCROLL UI --- */
 .scroll-up, #back-to-top, .back-to-top, .scroll-to-top {
-    position: fixed !important;
-    right: 10px !important;
-    bottom: 200px !important;
+    position: fixed;
+    right: 10px;
+    bottom: 200px;
     z-index: 9999;
 }
 
@@ -160,10 +164,22 @@ margin: 0 0 15px 0; color: #333; }
 
 @media (max-width: 1024px) {
     .branding-intro-bar { padding: 30px 0; }
-    .branding-flex { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 15px; padding: 0 20px; }
-    .hero-logotype { width: 100%; max-width: 640px; } 
+    .branding-flex { 
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px; 
+        padding: 0 20px; 
+    }
+    .hero-logotype { 
+        width: 100%;
+    }
+    .hero-logotype img {
+        margin: 0 auto;
+        max-width: 400px;
+    }
     .hero-statement h1, .branding-text { white-space: normal; font-size: 18px; text-align: center; }
-    .hero-action { display: none !important; }
+    .hero-action { display: none; }
 
     /* MOBILE SYNC: Consistent 15px vertical spacing */
     .hero-full-width-wrapper { padding: 15px 0; }
@@ -177,7 +193,7 @@ margin: 0 0 15px 0; color: #333; }
     .featured-card { grid-column: span 2 !important; }
     .awards-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 15px; }
 
-    .scroll-up, #back-to-top, .back-to-top, .scroll-to-top { right: 5px !important; }
+    .scroll-up, #back-to-top, .back-to-top, .scroll-to-top { right: 5px; }
 }
 
 @media (max-width: 600px) {
