@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO DESTINATION ENGINE v4.32
+   THINKAMIGO DESTINATION ENGINE v4.33
    Architecture: 1250px Horizon | 960px Editorial Rail
    Updates: Refined Fixed-Width Form Sandbox (450px/750px)
    Features: SATURATION LOCK (#0054dc), Signature Style Sync
@@ -18,6 +18,8 @@
    v4.32: Beyond Belief card grid added. Thumbnail grid for eZine
           landing pages. Used on beyond-belief.html and similar
           ThinkCREATE indexes.
+   v4.33: iPad mini fixes for cinematic images
+
    ============================================================ */
 
 :root {
