@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.66)
+   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.67)
    Covers: Branding Bar, Stone/Sand Grids, Card Engine
    Architecture: 1250px Wide Horizon | 15px Universal Rhythm
    v1.66: Branding bar flex fix. align-items: stretch on
@@ -176,7 +176,7 @@
     }
     .hero-logotype img {
         margin: 0 auto;
-        max-width: 400px;
+        max-width: 640px;
     }
     .hero-statement h1, .branding-text { white-space: normal; font-size: 18px; text-align: center; }
     .hero-action { display: none; }
