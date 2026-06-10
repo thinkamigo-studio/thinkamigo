@@ -301,6 +301,7 @@ img {
 }
 
 @media (max-width: 768px) {
+    .logo img { height: 52px; }
     #main-footer .footer-branding-top { padding: 0 20px 40px 20px; }
     
     #main-footer .footer-body-grid { 
