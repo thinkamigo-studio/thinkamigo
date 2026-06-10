@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO GALLERY ENGINE v9.3
+   THINKAMIGO GALLERY ENGINE v9.5
    Architecture: Triple-Slot Filmstrip (300vw Track)
    Updates: Portrait Engine Restore | Full-Bleed Breakout | Mobile Maximizer
    v9.1: Resource card action links pinned to bottom of card.
@@ -8,6 +8,11 @@
    v9.3: Border moved from .story-inline-image img to .story-inline-image wrapper.
          Caption now aligns flush with image edge.
          Inline images without data-full now show cursor: default.
+   v9.4: cursor: pointer served to touch devices via hover: none media query.
+         Fixes iOS Safari lightbox tap behaviour. zoom-in retained on desktop.
+   v9.5: 100dvh replaced with vh/dvh progressive enhancement pattern throughout.
+         dvh not reliably supported on older iOS Safari - fallback to vh prevents
+         lightbox cropping and caption disappearing on iPad and older devices.
    ============================================================ */
 
 /* --- 0. UNIVERSAL RESET --- */
@@ -20,6 +25,7 @@
 /* Scroll Lock */
 .no-scroll {
     overflow: hidden !important;
+    height: 100vh;
     height: 100dvh;
 }
 
@@ -92,7 +98,7 @@
     transition: none; 
 }
 
-/* Lightbox cursor -- only on images with a data-full target */
+/* Lightbox cursor -- zoom-in on desktop, pointer on touch devices */
 img[data-full] {
     cursor: zoom-in;
 }
@@ -170,25 +176,41 @@ img[data-full] {
 
 /* --- 4. LIGHTBOX UI (FULL RESTORATION + MAX REAL ESTATE) --- */
 .lightbox { 
-    display: none; position: fixed; z-index: 9999999; 
-    top: 0; left: 0; width: 100vw; height: 100dvh; 
+    display: none;
+    position: fixed;
+    z-index: 9999999; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     background-color: #0A254A; 
     overflow: hidden;
 }
 
 .lightbox-track {
-    display: flex; width: 300%; height: 100dvh;
-    transform: translateX(-33.33%); will-change: transform;
+    display: flex;
+    width: 300%;
+    height: 100vh;
+    height: 100dvh;
+    transform: translateX(-33.33%);
+    will-change: transform;
 }
 
 .lb-slot {
-    width: 100vw; height: 100dvh; display: flex;
-    justify-content: center; align-items: center; flex-shrink: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .lightbox-content { 
     max-width: 95vw; 
-    max-height: 92dvh; 
+    max-height: 92vh;
+    max-height: 92dvh;
     object-fit: contain; 
     margin: 0; 
 }
