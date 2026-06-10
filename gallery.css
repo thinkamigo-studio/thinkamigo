@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO GALLERY ENGINE v9.5
+   THINKAMIGO GALLERY ENGINE v9.6
    Architecture: Triple-Slot Filmstrip (300vw Track)
    Updates: Portrait Engine Restore | Full-Bleed Breakout | Mobile Maximizer
    v9.1: Resource card action links pinned to bottom of card.
@@ -13,6 +13,12 @@
    v9.5: 100dvh replaced with vh/dvh progressive enhancement pattern throughout.
          dvh not reliably supported on older iOS Safari - fallback to vh prevents
          lightbox cropping and caption disappearing on iPad and older devices.
+   v9.6: Apple iPad Mini Safari Bug Fix. -webkit-fill-available added as middle
+         value between vh and dvh in all lightbox height declarations. Safari
+         calculates vh using the full viewport including browser chrome, causing
+         the lightbox to overflow and the caption to disappear below the visible
+         area. -webkit-fill-available is Apple's own unit for the actual visible
+         height. Chrome on iOS is unaffected as it uses a different render path.
    ============================================================ */
 
 /* --- 0. UNIVERSAL RESET --- */
@@ -175,6 +181,19 @@ img[data-full] {
 }
 
 /* --- 4. LIGHTBOX UI (FULL RESTORATION + MAX REAL ESTATE) --- */
+
+/* ============================================================
+   APPLE IPAD MINI SAFARI BUG FIX
+   Safari calculates vh using the full viewport height including
+   the browser chrome, causing the lightbox to overflow and clip
+   at the bottom. The caption and dark overlay disappear below
+   the visible area. Chrome on iOS is unaffected.
+   Fix: -webkit-fill-available is Apple's own unit for the true
+   visible height. Declared as middle value between vh and dvh
+   so older Safari uses it, modern browsers use dvh, and
+   everything else falls back to vh.
+   ============================================================ */
+
 .lightbox { 
     display: none;
     position: fixed;
@@ -183,6 +202,7 @@ img[data-full] {
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: -webkit-fill-available;
     height: 100dvh;
     background-color: #0A254A; 
     overflow: hidden;
@@ -192,6 +212,7 @@ img[data-full] {
     display: flex;
     width: 300%;
     height: 100vh;
+    height: -webkit-fill-available;
     height: 100dvh;
     transform: translateX(-33.33%);
     will-change: transform;
@@ -200,6 +221,7 @@ img[data-full] {
 .lb-slot {
     width: 100vw;
     height: 100vh;
+    height: -webkit-fill-available;
     height: 100dvh;
     display: flex;
     justify-content: center;
@@ -210,6 +232,7 @@ img[data-full] {
 .lightbox-content { 
     max-width: 95vw; 
     max-height: 92vh;
+    max-height: -webkit-fill-available;
     max-height: 92dvh;
     object-fit: contain; 
     margin: 0; 
