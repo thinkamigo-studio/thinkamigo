@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.68)
+   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.67)
    Covers: Branding Bar, Stone/Sand Grids, Card Engine
    Architecture: 1250px Wide Horizon | 15px Universal Rhythm
    v1.66: Branding bar flex fix. align-items: stretch on
@@ -7,6 +7,12 @@
           centred via margin: 0 auto with max-width: 400px.
           Fixes logo undersizing on all tablet and mobile
           devices across all browsers.
+   v1.67: Removed display: grid from .branding-flex base rule.
+          grid !important was overriding the flex column layout
+          in the 1024px media query, causing logo and heading
+          to sit side by side instead of stacking vertically.
+          All remaining !important instances removed from base
+          rules to prevent similar cascade conflicts.
    ============================================================ */
 
 /* --- 1. THE BRANDING INTRO BAR --- */
@@ -19,8 +25,8 @@
 }
 
 .branding-flex { 
-    display: grid !important; 
-    grid-template-columns: repeat(5, 1fr) !important; 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
     gap: 15px; 
     align-items: center; 
     max-width: 1250px; 
@@ -29,10 +35,10 @@
     box-sizing: border-box;
 }
 
-.hero-logotype { grid-column: span 2 !important; }
+.hero-logotype { grid-column: span 2; }
 .hero-logotype img { width: 100%; height: auto; display: block; }
-.hero-statement { grid-column: span 2 !important; text-align: center; padding: 0 10px; }
-.hero-action { grid-column: span 1 !important; display: flex; justify-content: flex-end; }
+.hero-statement { grid-column: span 2; text-align: center; padding: 0 10px; }
+.hero-action { grid-column: span 1; display: flex; justify-content: flex-end; }
 
 .hero-statement h1, .branding-text { 
     font-family: 'Poppins', sans-serif;
@@ -83,8 +89,8 @@
 }
 
 .home-hero-grid, .blog-grid { 
-    display: grid !important; 
-    grid-template-columns: repeat(5, 1fr) !important; 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
     gap: 15px; 
     max-width: 1250px; 
     margin: 0 auto; 
@@ -95,12 +101,12 @@
 
 /* --- 3. THE CARD ENGINE (ALIGNED & STATIC) --- */
 .home-hero-grid a, .blog-grid a { 
-    display: flex !important; 
-    flex-direction: column !important; 
+    display: flex; 
+    flex-direction: column; 
     background: #ffffff; 
     text-decoration: none; 
     color: inherit; 
-    height: 100% !important; 
+    height: 100%; 
     border-radius: 4px; 
     overflow: hidden;
 }
@@ -109,7 +115,7 @@
 
 .card-content { 
     padding: 15px; 
-    flex-grow: 1 !important; 
+    flex-grow: 1; 
     display: flex;
     flex-direction: column;
 }
@@ -124,8 +130,8 @@
 
 /* --- 5. GRID SPAN LOCKS --- */
 .featured-card { 
-    grid-column: span 2 !important; 
-    grid-row: span 2 !important; 
+    grid-column: span 2; 
+    grid-row: span 2; 
 }
 
 /* --- 6. AWARDS PANEL (15PX SYNC) --- */
@@ -176,7 +182,7 @@
     }
     .hero-logotype img {
         margin: 0 auto;
-        max-width: 800px;
+        max-width: 400px;
     }
     .hero-statement h1, .branding-text { white-space: normal; font-size: 18px; text-align: center; }
     .hero-action { display: none; }
@@ -186,18 +192,18 @@
     .blog-full-width-wrapper { padding: 15px 0; }
 
     .home-hero-grid, .blog-grid { 
-        grid-template-columns: repeat(2, 1fr) !important; 
+        grid-template-columns: repeat(2, 1fr); 
         gap: 15px; 
         padding: 0; 
     }
-    .featured-card { grid-column: span 2 !important; }
-    .awards-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 15px; }
+    .featured-card { grid-column: span 2; }
+    .awards-grid { grid-template-columns: repeat(4, 1fr); gap: 15px; }
 
     .scroll-up, #back-to-top, .back-to-top, .scroll-to-top { right: 5px; }
 }
 
 @media (max-width: 600px) {
-    .home-hero-grid, .blog-grid { grid-template-columns: 1fr !important; }
-    .featured-card { grid-column: span 1 !important; }
-    .awards-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 10px; }
+    .home-hero-grid, .blog-grid { grid-template-columns: 1fr; }
+    .featured-card { grid-column: span 1; }
+    .awards-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
 }
