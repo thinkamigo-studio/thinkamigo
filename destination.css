@@ -58,7 +58,6 @@ body.content-page {
     max-width: 1250px;       
     height: auto;            
     display: block;          
-    object-fit: contain;     
 }
 
 /* 4. THE PAPER SHEET */
