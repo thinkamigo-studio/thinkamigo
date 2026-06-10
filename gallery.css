@@ -97,6 +97,12 @@ img[data-full] {
     cursor: zoom-in;
 }
 
+@media (hover: none) {
+    img[data-full] {
+        cursor: pointer;
+    }
+}
+
 /* Force Portrait Consistency (Form and Function) */
 .gallery-portrait-4 .gallery-item img {
     aspect-ratio: 2 / 3;
