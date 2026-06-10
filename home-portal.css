@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.67)
+   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.68)
    Covers: Branding Bar, Stone/Sand Grids, Card Engine
    Architecture: 1250px Wide Horizon | 15px Universal Rhythm
    v1.66: Branding bar flex fix. align-items: stretch on
@@ -13,6 +13,8 @@
           to sit side by side instead of stacking vertically.
           All remaining !important instances removed from base
           rules to prevent similar cascade conflicts.
+   v1.68: Tweaked ipad breakpoint from 1024 to 1080
+        
    ============================================================ */
 
 /* --- 1. THE BRANDING INTRO BAR --- */
@@ -168,7 +170,7 @@
     .home-hero-grid, .blog-grid { padding: 0 20px; }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
     .branding-intro-bar { padding: 30px 0; }
     .branding-flex { 
         display: flex;
