@@ -96,9 +96,17 @@ img {
     display: none; 
     cursor: pointer; 
     flex-direction: column; 
-    gap: 5px; 
 }
-.hamburger span { width: 25px; height: 3px; background-color: #ffffff; display: block; }
+.hamburger span { 
+    width: 25px; 
+    height: 3px; 
+    background-color: #ffffff; 
+    display: block;
+    margin-bottom: 5px;
+}
+.hamburger span:last-child {
+    margin-bottom: 0;
+}
 
 /* --- 4. MASTER FOOTER --- */
 #main-footer { 
