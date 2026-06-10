@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO GALLERY ENGINE v9.6
+   THINKAMIGO GALLERY ENGINE v9.7
    Architecture: Triple-Slot Filmstrip (300vw Track)
    Updates: Portrait Engine Restore | Full-Bleed Breakout | Mobile Maximizer
    v9.1: Resource card action links pinned to bottom of card.
@@ -17,8 +17,14 @@
          value between vh and dvh in all lightbox height declarations. Safari
          calculates vh using the full viewport including browser chrome, causing
          the lightbox to overflow and the caption to disappear below the visible
-         area. -webkit-fill-available is Apple's own unit for the actual visible
-         height. Chrome on iOS is unaffected as it uses a different render path.
+         area. Chrome on iOS is unaffected as it uses a different render path.
+   v9.7: Apple iPad Mini Safari Bug Fix continued. Viewport height units removed
+         from lightbox entirely. Replaced with position: fixed inset 0 pattern
+         (top: 0; left: 0; right: 0; bottom: 0). Child elements use height: 100%
+         relative to the fixed parent. Sidesteps Safari vh calculation bug
+         completely. Universally supported across all browsers. lightbox-content
+         max-height set to 88vh (plain) to ensure caption clears browser chrome
+         on all devices.
    ============================================================ */
 
 /* --- 0. UNIVERSAL RESET --- */
@@ -184,45 +190,40 @@ img[data-full] {
 
 /* ============================================================
    APPLE IPAD MINI SAFARI BUG FIX
-   Safari calculates vh using the full viewport height including
-   the browser chrome, causing the lightbox to overflow and clip
-   at the bottom. The caption and dark overlay disappear below
-   the visible area. Chrome on iOS is unaffected.
-   Fix: -webkit-fill-available is Apple's own unit for the true
-   visible height. Declared as middle value between vh and dvh
-   so older Safari uses it, modern browsers use dvh, and
-   everything else falls back to vh.
+   Safari calculates vh using the full viewport including browser
+   chrome, causing the lightbox to overflow and clip at the bottom.
+   The caption and dark overlay disappear below the visible area.
+   Chrome on iOS is unaffected as it uses a different render path.
+   Fix: viewport height units removed entirely from the lightbox.
+   Replaced with position: fixed inset 0 pattern. Child elements
+   use height: 100% relative to the fixed parent. This sidesteps
+   the Safari vh calculation bug completely and is universally
+   supported across all browsers.
    ============================================================ */
 
-.lightbox { 
+.lightbox {
     display: none;
     position: fixed;
-    z-index: 9999999; 
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    height: -webkit-fill-available;
-    height: 100dvh;
-    background-color: #0A254A; 
+    right: 0;
+    bottom: 0;
+    z-index: 9999999;
+    background-color: #0A254A;
     overflow: hidden;
 }
 
 .lightbox-track {
     display: flex;
     width: 300%;
-    height: 100vh;
-    height: -webkit-fill-available;
-    height: 100dvh;
+    height: 100%;
     transform: translateX(-33.33%);
     will-change: transform;
 }
 
 .lb-slot {
     width: 100vw;
-    height: 100vh;
-    height: -webkit-fill-available;
-    height: 100dvh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,9 +232,7 @@ img[data-full] {
 
 .lightbox-content { 
     max-width: 95vw; 
-    max-height: 92vh;
-    max-height: -webkit-fill-available;
-    max-height: 92dvh;
+    max-height: 88vh;
     object-fit: contain; 
     margin: 0; 
 }
