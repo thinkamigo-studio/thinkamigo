@@ -47,6 +47,7 @@ body.content-page {
     width: 100%;
     background-color: var(--stone-bg); 
     display: flex;
+    align-items: flex-start;
     justify-content: center;        
     border-top: 1px solid #ffffff; 
     margin-top: 0;
