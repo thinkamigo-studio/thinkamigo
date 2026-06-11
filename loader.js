@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO UNIFIED LOADER & INJECTOR v23.10
+   THINKAMIGO UNIFIED LOADER & INJECTOR v23.11
    Architecture: Triple-Slot Filmstrip + Sovereign Projector
    Updates: Footer-First Handshake | story-inline-video Sync
             Amigos Authentication Module | External Link Fix | Lock Removed
@@ -15,6 +15,11 @@
            in iframes unless a qualifying user gesture is passed through,
            which is not guaranteed. Removing autoplay lets the user press
            play manually inside the iframe. Works reliably on all platforms.
+   v23.11: Double video-container wrapper fix. #projector-video-container in
+           video.html already has class video-container. openProjector was
+           inserting a second video-container div inside it, doubling the
+           wrapper and collapsing iframe dimensions on iPad. Fixed by inserting
+           iframe directly into target without the extra wrapper div.
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -67,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 2. MODULE: CINEMATIC THEATRE PROJECTOR (v5.4 SYNC) ---
     const setupProjectorLogic = () => {
         const projector = document.getElementById('video-theatre-projector');
-        // ID updated to match footer.html container
         const target = document.getElementById('projector-video-container');
         const closeBtn = document.querySelector('.projector-close');
         const cards = document.querySelectorAll('.theatre-card');
@@ -82,28 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Handle Local MP4
             if (videoData.includes('.mp4')) {
-                finalHtml = `
-                    <div class="video-container">
-                        <video controls playsinline controlsList="nodownload">
-                            <source src="${videoData}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>`;
+                finalHtml = `<video controls playsinline controlsList="nodownload" style="width:100%;height:100%;display:block;">
+                    <source src="${videoData}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>`;
             } 
             // Handle YouTube
             else if (videoData.includes('youtube.com') || videoData.includes('youtu.be')) {
-                finalHtml = `
-                    <div class="video-container">
-                        <iframe src="${videoData}" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
-                    </div>`;
+                finalHtml = `<iframe src="${videoData}" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>`;
             }
             // Default to Vimeo (Project ID)
             else {
                 const vimeoUrl = `https://player.vimeo.com/video/${videoData}?color=ff6600&title=0&byline=0&portrait=0`;
-                finalHtml = `
-                    <div class="video-container">
-                        <iframe src="${vimeoUrl}" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
-                    </div>`;
+                finalHtml = `<iframe src="${vimeoUrl}" frameborder="0" allow="fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>`;
             }
 
             target.innerHTML = finalHtml;
