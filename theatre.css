@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO THEATRE ENGINE v5.7
+   THINKAMIGO THEATRE ENGINE v5.8
    Architecture: Sovereign Cinema Environment (Grounded)
    Updates: Keyline Icon | YouTube a-tag Sync | Gallery Parity
    Functionality: #0A254A Midnight Blue | Fixed Breakout
@@ -7,6 +7,11 @@
    orange underline at 6px offset.
    v5.7: theatre-meta plain text label | res-link--private
    greyed-out state for non-public video credits.
+   v5.8: Apple iPad Mini Safari Bug Fix. Same root cause as
+   gallery.css v9.7. height: 100dvh removed from projector.
+   Replaced with position: fixed inset 0 pattern (top: 0;
+   left: 0; right: 0; bottom: 0). width: 100vw also removed.
+   Sidesteps Safari vh/dvh calculation bug completely.
    ============================================================ */
 
 /* --- 1. THE MAIN STAGE (THE VOID) --- */
@@ -201,12 +206,23 @@ a.theatre-card,
 }
 
 /* --- 6. THE PROJECTOR (GLOBAL BREAKOUT & GALLERY PARITY) --- */
+
+/* ============================================================
+   APPLE IPAD MINI SAFARI BUG FIX
+   Same root cause as gallery.css v9.7. Safari calculates dvh
+   and vh using the full viewport including browser chrome,
+   causing the projector to overflow and clip at the bottom.
+   Fix: height and width declarations removed entirely.
+   Replaced with position: fixed inset 0 pattern so Safari
+   stretches to screen edges without calculating a height.
+   ============================================================ */
+
 #video-theatre-projector {
     position: fixed; 
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100dvh;
+    right: 0;
+    bottom: 0;
     background-color: #0A254A;
     display: none;
     z-index: 1000000; 
