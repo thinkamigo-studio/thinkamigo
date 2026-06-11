@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO THEATRE ENGINE v5.8
+   THINKAMIGO THEATRE ENGINE v5.9
    Architecture: Sovereign Cinema Environment (Grounded)
    Updates: Keyline Icon | YouTube a-tag Sync | Gallery Parity
    Functionality: #0A254A Midnight Blue | Fixed Breakout
@@ -12,6 +12,11 @@
    Replaced with position: fixed inset 0 pattern (top: 0;
    left: 0; right: 0; bottom: 0). width: 100vw also removed.
    Sidesteps Safari vh/dvh calculation bug completely.
+   v5.9: Projector stage height fix. aspect-ratio alone gave
+   .projector-stage no explicit height for child percentage
+   heights to calculate from. Replaced with position: relative,
+   explicit height: 100% and max-height: calc(95vw * 9 / 16)
+   to constrain to 16:9 within the fixed overlay.
    ============================================================ */
 
 /* --- 1. THE MAIN STAGE (THE VOID) --- */
@@ -209,12 +214,13 @@ a.theatre-card,
 
 /* ============================================================
    APPLE IPAD MINI SAFARI BUG FIX
-   Same root cause as gallery.css v9.7. Safari calculates dvh
-   and vh using the full viewport including browser chrome,
-   causing the projector to overflow and clip at the bottom.
-   Fix: height and width declarations removed entirely.
-   Replaced with position: fixed inset 0 pattern so Safari
-   stretches to screen edges without calculating a height.
+   Safari calculates dvh and vh using the full viewport including
+   browser chrome causing the projector to overflow and clip.
+   Fix: height and width declarations removed from the projector
+   overlay. Replaced with position: fixed inset 0 pattern.
+   Projector stage uses position: relative with explicit height
+   and max-height calc to constrain to 16:9 within the overlay,
+   giving child percentage heights a value to calculate from.
    ============================================================ */
 
 #video-theatre-projector {
@@ -232,11 +238,12 @@ a.theatre-card,
 }
 
 .projector-stage {
+    position: relative;
     width: 95vw;
     max-width: 1600px;
-    aspect-ratio: 16 / 9;
+    height: 100%;
+    max-height: calc(95vw * 9 / 16);
     background-color: #000000;
-    position: relative;
 }
 
 .projector-close {
