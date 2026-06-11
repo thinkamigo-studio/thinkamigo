@@ -1,13 +1,16 @@
 /* ============================================================
-   THINKAMIGO UNIFIED LOADER & INJECTOR v23.8
+   THINKAMIGO UNIFIED LOADER & INJECTOR v23.9
    Architecture: Triple-Slot Filmstrip + Sovereign Projector
    Updates: Footer-First Handshake | story-inline-video Sync
             Amigos Authentication Module | External Link Fix | Lock Removed
    v23.8: Apple iPad Mini Safari Bug Fix. On iOS Safari, position: fixed
           elements render offset from the viewport when the page has scrolled.
           Fix: window.scrollTo(0, 0) called before no-scroll class is applied
-          and before the lightbox overlay is made visible. Order is critical -
+          and before the lightbox overlay is made visible. Order is critical —
           scroll first, lock second, show third. Chrome on iOS unaffected.
+   v23.9: Apple iPad Mini Safari Bug Fix extended to video projector.
+          Same root cause as v23.8. window.scrollTo(0, 0) now called before
+          overflow lock and before projector display in openProjector().
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -100,8 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             target.innerHTML = finalHtml;
+
+            // --- APPLE IPAD MINI SAFARI BUG FIX ---
+            // On iOS Safari, position: fixed elements render offset from the
+            // viewport when the page has scrolled. Scroll to top first, apply
+            // the overflow lock second, show the projector third.
+            // Order is critical.
+            window.scrollTo(0, 0);
+            document.body.style.overflow = 'hidden';
             projector.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
         };
 
         const closeProjector = () => {
