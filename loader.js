@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO UNIFIED LOADER & INJECTOR v23.9
+   THINKAMIGO UNIFIED LOADER & INJECTOR v23.10
    Architecture: Triple-Slot Filmstrip + Sovereign Projector
    Updates: Footer-First Handshake | story-inline-video Sync
             Amigos Authentication Module | External Link Fix | Lock Removed
@@ -11,6 +11,10 @@
    v23.9: Apple iPad Mini Safari Bug Fix extended to video projector.
           Same root cause as v23.8. window.scrollTo(0, 0) now called before
           overflow lock and before projector display in openProjector().
+   v23.10: autoplay=1 removed from Vimeo URL. iOS Safari blocks autoplay
+           in iframes unless a qualifying user gesture is passed through,
+           which is not guaranteed. Removing autoplay lets the user press
+           play manually inside the iframe. Works reliably on all platforms.
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -80,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (videoData.includes('.mp4')) {
                 finalHtml = `
                     <div class="video-container">
-                        <video controls autoplay playsinline controlsList="nodownload">
+                        <video controls playsinline controlsList="nodownload">
                             <source src="${videoData}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -90,15 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (videoData.includes('youtube.com') || videoData.includes('youtu.be')) {
                 finalHtml = `
                     <div class="video-container">
-                        <iframe src="${videoData}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="${videoData}" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
                     </div>`;
             }
             // Default to Vimeo (Project ID)
             else {
-                const vimeoUrl = `https://player.vimeo.com/video/${videoData}?autoplay=1&color=ff6600&title=0&byline=0&portrait=0`;
+                const vimeoUrl = `https://player.vimeo.com/video/${videoData}?color=ff6600&title=0&byline=0&portrait=0`;
                 finalHtml = `
                     <div class="video-container">
-                        <iframe src="${vimeoUrl}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        <iframe src="${vimeoUrl}" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
                     </div>`;
             }
 
@@ -286,8 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const trigger = e.target.closest('.video-item');
             if (!trigger) return;
             const id = trigger.getAttribute('data-video-id');
-            const url = `https://player.vimeo.com/video/${id}?autoplay=1&color=f39c12`;
-            document.getElementById('slot-curr').innerHTML = `<div class="video-stage"><iframe src="${url}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>`;
+            const url = `https://player.vimeo.com/video/${id}?color=f39c12`;
+            document.getElementById('slot-curr').innerHTML = `<div class="video-stage"><iframe src="${url}" frameborder="0" allow="fullscreen" allowfullscreen></iframe></div>`;
             document.getElementById('lightbox-overlay').style.display = 'flex';
             document.body.classList.add('no-scroll');
         });
