@@ -15,11 +15,11 @@
            in iframes unless a qualifying user gesture is passed through,
            which is not guaranteed. Removing autoplay lets the user press
            play manually inside the iframe. Works reliably on all platforms.
-   v23.11: Double video-container wrapper fix. #projector-video-container in
-           video.html already has class video-container. openProjector was
-           inserting a second video-container div inside it, doubling the
-           wrapper and collapsing iframe dimensions on iPad. Fixed by inserting
-           iframe directly into target without the extra wrapper div.
+   v23.12: autoplay=1 restored to Vimeo URL, YouTube and MP4. Removing autoplay
+           caused Vimeo to serve a blurred thumbnail instead of the player.
+           Autoplay was working correctly on desktop and iPhone before v23.10
+           so the removal was incorrect. iOS Safari autoplay policy satisfied
+           by the user tap gesture on the theatre card.
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -86,18 +86,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Handle Local MP4
             if (videoData.includes('.mp4')) {
-                finalHtml = `<video controls playsinline controlsList="nodownload" style="width:100%;height:100%;display:block;">
+                finalHtml = `<video controls autoplay playsinline controlsList="nodownload" style="width:100%;height:100%;display:block;">
                     <source src="${videoData}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>`;
             } 
             // Handle YouTube
             else if (videoData.includes('youtube.com') || videoData.includes('youtu.be')) {
-                finalHtml = `<iframe src="${videoData}" frameborder="0" allow="fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>`;
+                finalHtml = `<iframe src="${videoData}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>`;
             }
             // Default to Vimeo (Project ID)
             else {
-                const vimeoUrl = `https://player.vimeo.com/video/${videoData}?color=ff6600&title=0&byline=0&portrait=0`;
+                const vimeoUrl = `https://player.vimeo.com/video/${videoData}?autoplay=1&color=ff6600&title=0&byline=0&portrait=0`;
                 finalHtml = `<iframe src="${vimeoUrl}" frameborder="0" allow="fullscreen" allowfullscreen style="width:100%;height:100%;border:none;display:block;"></iframe>`;
             }
 
