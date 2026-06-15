@@ -72,6 +72,12 @@
         <priority>0.6</priority>
     </url>
 
+    <url>
+        <loc>https://thinkamigo.com/what-people-say.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
     <!-- Feature pages -->
     <url>
         <loc>https://thinkamigo.com/legend-and-legacy.html</loc>
