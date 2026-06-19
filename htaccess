@@ -1,0 +1,35 @@
+# Thinkamigo - WordPress to HTML redirect map
+# Generated from GitHub_to_WP_mapping.xlsx
+# Version 1.0 - May 2026
+#
+# Redirects old WordPress trailing-slash URLs to new flat HTML structure.
+# 301 = permanent redirect - search engines will update their indexes.
+# "New" entries in the spreadsheet have no old URL and need no redirect.
+
+Options -Indexes
+RewriteEngine On
+
+# ---------------------------------------------------------------------------
+# WordPress slug to HTML redirects
+# ---------------------------------------------------------------------------
+
+RewriteRule ^being-arthur-again/?$                      /being-arthur-again.html                    [R=301,L]
+RewriteRule ^beyond-belief-glossary/?$                  /beyond-belief-glossary.html                [R=301,L]
+RewriteRule ^challenging-stereotypes-through-comics/?$  /challenging-stereotypes-through-comics.html [R=301,L]
+RewriteRule ^chariots-of-the-wtf/?$                     /chariots-of-the-wtf.html                   [R=301,L]
+RewriteRule ^consulting/?$                              /consulting.html                             [R=301,L]
+RewriteRule ^cookies-and-privacy/?$                     /privacy.html                               [R=301,L]
+RewriteRule ^digital-storytelling/?$                    /stories.html                               [R=301,L]
+RewriteRule ^in-search-of-apollo-eyes/?$                /in-search-of-apollo-eyes.html              [R=301,L]
+RewriteRule ^leeds-loud-and-lonely/?$                   /leeds-loud-and-lonely.html                 [R=301,L]
+RewriteRule ^legend-and-legacy/?$                       /legend-and-legacy.html                     [R=301,L]
+RewriteRule ^outreach/?$                                /heritage.html                              [R=301,L]
+RewriteRule ^plate-to-pixel/?$                          /plate-to-pixel.html                        [R=301,L]
+RewriteRule ^poems-disguised-as-television/?$           /poems-disguised-as-tv.html                 [R=301,L]
+RewriteRule ^publications-and-media/?$                  /publications.html                          [R=301,L]
+RewriteRule ^rails-trails-and-sons-and-lovers/?$        /sons-and-lovers.html                       [R=301,L]
+RewriteRule ^reel-to-real-mystery/?$                    /reel-to-real-mystery.html                  [R=301,L]
+RewriteRule ^they-called-it-mixed-media/?$              /leeds-arts-university-exhibition.html      [R=301,L]
+RewriteRule ^unidentified-bolts-from-the-blue/?$        /unidentified-bolts-from-the-blue.html      [R=301,L]
+RewriteRule ^video/?$                                   /video.html                                 [R=301,L]
+RewriteRule ^who-do-you-think-qr/?$                     /who-do-you-think-qr.html                   [R=301,L]
