@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     THINKAMIGO EARTH FRAMEWORK v3.1
+     THINKAMIGO EARTH FRAMEWORK v3.2
      v1.0: Initial build — rectangular boxes, too ugly
      v2.0: Circle nodes, pentagon layout — circles too small, text overflowing
      v3.0: Larger circles r=72, tighter orbit, short spoke lines, text fits inside
      v3.1: Circle text corrections — E, A, R, T, H descriptions updated
+     v3.2: max-width removed from container — diagram fills full text rail width
      ============================================================ -->
 <html lang="en">
 <head>
@@ -26,8 +27,7 @@
 }
 
 .org-chart-wrap {
-  margin: 40px auto;
-  max-width: 520px;
+  margin: 40px 0;
 }
 
 .org-svg {
