@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     THINKAMIGO BRAND TAXONOMY v1.2
+     THINKAMIGO BRAND TAXONOMY v1.3
      v1.0: Initial build — six-node accordion taxonomy
      v1.1: EARTH framework link removed — navigation handled by Amigos landing page cards
      v1.2: Spacing pass — breathing room added to nodes, grids and connectors. Background colours added to all nodes.
+     v1.3: Node header layout fixed — name and role now stack vertically inside all nodes. Overflow resolved.
      ============================================================ -->
 <html lang="en">
 <head>
@@ -106,9 +107,15 @@
 
 .tax-node-header {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
+}
+
+.tax-node-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .tax-node-name {
@@ -273,8 +280,7 @@
 
     <div class="tax-node tax-node-studio" id="node-studio" onclick="toggle('studio')">
       <div class="tax-node-header">
-        <p class="tax-node-name">Studio thinkamigo</p>
-        <p class="tax-node-role">The practice. The atelier umbrella.</p>
+        <div class="tax-node-title"><p class="tax-node-name">Studio thinkamigo</p><p class="tax-node-role">The practice. The atelier umbrella.</p></div>
         <span class="tax-node-chevron">&#9660;</span>
       </div>
       <div class="tax-node-detail">
@@ -293,8 +299,7 @@
 
     <div class="tax-node thinkos-node" id="node-thinkos" onclick="toggle('thinkos')">
       <div class="tax-node-header">
-        <p class="tax-node-name">thinkOS</p>
-        <p class="tax-node-role">The methodology. The connective tissue.</p>
+        <div class="tax-node-title"><p class="tax-node-name">thinkOS</p><p class="tax-node-role">The methodology. The connective tissue.</p></div>
         <span class="tax-node-chevron">&#9660;</span>
       </div>
       <div class="tax-node-detail">
@@ -318,8 +323,7 @@
 
         <div class="tax-node tax-node-intelligence" id="node-intelligence" onclick="toggle('intelligence')">
           <div class="tax-node-header">
-            <p class="tax-node-name">thinkINTELLIGENCE</p>
-            <p class="tax-node-role">The premium service.</p>
+            <div class="tax-node-title"><p class="tax-node-name">thinkINTELLIGENCE</p><p class="tax-node-role">The premium service.</p></div>
             <span class="tax-node-chevron">&#9660;</span>
           </div>
           <div class="tax-node-detail">
@@ -337,8 +341,7 @@
 
         <div class="tax-node tax-node-workshop" id="node-workshop" onclick="toggle('workshop')">
           <div class="tax-node-header">
-            <p class="tax-node-name">thinkamigoWORKSHOP</p>
-            <p class="tax-node-role">The making place.</p>
+            <div class="tax-node-title"><p class="tax-node-name">thinkamigoWORKSHOP</p><p class="tax-node-role">The making place.</p></div>
             <span class="tax-node-chevron">&#9660;</span>
           </div>
           <div class="tax-node-detail">
@@ -360,10 +363,12 @@
 
           <div class="tax-node tax-node-editions" id="node-editions" onclick="toggle('editions')">
             <div class="tax-node-header">
-              <p class="tax-node-name">thinkamigoEDITIONS</p>
+              <div class="tax-node-title">
+                <p class="tax-node-name">thinkamigoEDITIONS</p>
+                <p class="tax-node-role">The permanent record.</p>
+              </div>
               <span class="tax-node-chevron">&#9660;</span>
             </div>
-            <p style="font-size:12px;font-weight:300;color:#666666;margin:4px 0 0;">The permanent record.</p>
             <div class="tax-node-detail">
               <span class="tax-accent">Publisher</span>
               <p>Registered publisher. ISBN management, British Library legal deposit, NTU collaborations. Things that will exist in 100 years.</p>
@@ -374,10 +379,12 @@
 
           <div class="tax-node tax-node-streams" id="node-streams" onclick="toggle('streams')">
             <div class="tax-node-header">
-              <p class="tax-node-name">thinkamigoSTREAMS</p>
+              <div class="tax-node-title">
+                <p class="tax-node-name">thinkamigoSTREAMS</p>
+                <p class="tax-node-role">The living presence.</p>
+              </div>
               <span class="tax-node-chevron">&#9660;</span>
             </div>
-            <p style="font-size:12px;font-weight:300;color:#666666;margin:4px 0 0;">The living presence.</p>
             <div class="tax-node-detail">
               <span class="tax-accent orange">Channels</span>
               <p>Transient digital channels. Substack, Instagram, LinkedIn, Pinterest. Real-time audience engagement.</p>
