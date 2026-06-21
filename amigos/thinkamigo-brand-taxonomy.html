@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio thinkamigo — brand taxonomy | Amigos</title>
+
+<link rel="stylesheet" href="../chassis.css">
+<link rel="stylesheet" href="../destination.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.taxonomy-intro {
+  font-size: 16px;
+  font-weight: 300;
+  color: #333333;
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.taxonomy-wrap {
+  margin: 40px 0;
+}
+
+.tax-node {
+  border: 1px solid #dddddd;
+  padding: 20px 24px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  position: relative;
+}
+
+.tax-node:hover {
+  border-color: #0054dc;
+}
+
+.tax-node.active {
+  border-color: #0054dc;
+  border-left: 4px solid #0054dc;
+}
+
+.tax-node-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tax-node-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0054dc;
+  margin: 0;
+}
+
+.tax-node-role {
+  font-size: 13px;
+  font-weight: 300;
+  color: #666666;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.tax-node-chevron {
+  font-size: 12px;
+  color: #888888;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.tax-node.active .tax-node-chevron {
+  transform: rotate(180deg);
+}
+
+.tax-node-detail {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eeeeea;
+}
+
+.tax-node.active .tax-node-detail {
+  display: block;
+}
+
+.tax-node-detail p {
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333;
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+
+.tax-node-detail p:last-child {
+  margin-bottom: 0;
+}
+
+.tax-accent {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  background: #0054dc;
+  padding: 2px 8px;
+  margin-bottom: 10px;
+}
+
+.tax-accent.orange {
+  background: #ff6600;
+}
+
+.tax-connector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 24px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #888888;
+}
+
+.tax-connector-line {
+  flex: 1;
+  height: 1px;
+  background: #dddddd;
+}
+
+.thinkos-node {
+  background: #f5f5ef;
+  border-left: 4px solid #0054dc;
+  border-top: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.thinkos-node .tax-node-name {
+  font-size: 18px;
+}
+
+.branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.branch-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sub-branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.tip-box {
+  background: #f5f5ef;
+  border-left: 3px solid #ff6600;
+  padding: 14px 18px;
+  margin: 32px 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: #555555;
+  line-height: 1.7;
+}
+
+.tip-box strong {
+  font-weight: 500;
+  color: #333333;
+}
+
+.section-rule {
+  border: none;
+  border-top: 1px solid #dddddd;
+  margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .branches { grid-template-columns: 1fr; }
+  .sub-branches { grid-template-columns: 1fr; }
+  .tax-node-role { display: none; }
+}
+</style>
+</head>
+<body class="content-page" data-base="../">
+
+<header id="main-nav"></header>
+
+<main class="editorial-post">
+<div class="paper-sheet">
+<article class="text-rail">
+
+  <p class="breadcrumb"><a href="index.html">Amigos</a> &gt; Brand taxonomy</p>
+
+  <header>
+    <h1>Studio thinkamigo</h1>
+    <div class="orange-rule"></div>
+    <h2>Brand taxonomy</h2>
+  </header>
+
+  <p class="taxonomy-intro">Six distinct brand elements. Each does a specific job and carries its own visual register. Together they describe the whole practice. Select any element to read more.</p>
+
+  <div class="taxonomy-wrap">
+
+    <div class="tax-node" id="node-studio" onclick="toggle('studio')">
+      <div class="tax-node-header">
+        <p class="tax-node-name">Studio thinkamigo</p>
+        <p class="tax-node-role">The practice. The atelier umbrella.</p>
+        <span class="tax-node-chevron">&#9660;</span>
+      </div>
+      <div class="tax-node-detail">
+        <span class="tax-accent">The umbrella</span>
+        <p>The practice in full. Forty years of creative and production practice. Named in the register of Studio International - serious, authoritative, European. Not a brand name chosen for effect; a designation that places the work in a tradition of independent studio practice.</p>
+        <p>Studio thinkamigo is the entity that encompasses everything below. The commercial vehicle is Thinkamigo Limited, incorporated February 2012.</p>
+        <p><strong>Visual register:</strong> Authoritative and considered. Not nostalgic - the past informs but does not decorate.</p>
+      </div>
+    </div>
+
+    <div class="tax-connector">
+      <div class="tax-connector-line"></div>
+      <span>methodology</span>
+      <div class="tax-connector-line"></div>
+    </div>
+
+    <div class="tax-node thinkos-node" id="node-thinkos" onclick="toggle('thinkos')">
+      <div class="tax-node-header">
+        <p class="tax-node-name">thinkOS</p>
+        <p class="tax-node-role">The methodology. The connective tissue.</p>
+        <span class="tax-node-chevron">&#9660;</span>
+      </div>
+      <div class="tax-node-detail">
+        <span class="tax-accent">Connective tissue</span>
+        <p>The operating system of the practice. thinkOS is not only a working methodology - it is a cultural position formed over six decades. A methodology can be copied. A cultural position cannot.</p>
+        <p>The tools, the bundles, the workflows are expressions of a coherent world view that took a lifetime to assemble. Conceptual models, Six Sombreros, context bundles, editorial workflow, framework architecture.</p>
+        <p>A thinkINTELLIGENCE client is buying access to someone running thinkOS. thinkamigoWORKSHOP produces the artefacts. thinkamigoEDITIONS and thinkamigoSTREAMS carry them into the world. thinkOS underpins and enables all of it.</p>
+        <p><strong>Visual register:</strong> Conceptual, diagrammatic. Clean systems thinking. The intelligence made visible.</p>
+      </div>
+    </div>
+
+    <div class="tax-connector">
+      <div class="tax-connector-line"></div>
+      <span>branches into</span>
+      <div class="tax-connector-line"></div>
+    </div>
+
+    <div class="branches">
+
+      <div class="branch-column">
+
+        <div class="tax-node" id="node-intelligence" onclick="toggle('intelligence')">
+          <div class="tax-node-header">
+            <p class="tax-node-name">thinkINTELLIGENCE</p>
+            <p class="tax-node-role">The premium service.</p>
+            <span class="tax-node-chevron">&#9660;</span>
+          </div>
+          <div class="tax-node-detail">
+            <span class="tax-accent">think iS.</span>
+            <p>The premium concierge service. Full name: think Intelligence Service. Visual mark: think iS. Pronounced: think eye ess.</p>
+            <p>Three tiers: personal concierge (referral and invitation only, Paul's direct time and expertise); thinkIS SME consultancy (scalable, pre-configured methodology); thinkIS Learn (self-serve online course).</p>
+            <p>A thinkINTELLIGENCE client is not buying AI tools. They are buying access to a practitioner who knows how to use them - and the cultural formation that makes that use distinctive.</p>
+            <p><strong>Visual register:</strong> Azure blue and gold. Paris, South of France, the Riviera. Roger Moore's The Saint - debonair, witty, internationally mobile. Intelligence worn lightly.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="branch-column">
+
+        <div class="tax-node" id="node-workshop" onclick="toggle('workshop')">
+          <div class="tax-node-header">
+            <p class="tax-node-name">thinkamigoWORKSHOP</p>
+            <p class="tax-node-role">The making place.</p>
+            <span class="tax-node-chevron">&#9660;</span>
+          </div>
+          <div class="tax-node-detail">
+            <span class="tax-accent orange">Production</span>
+            <p>Where things are made. Websites, video, illustration, booklets, exhibition panels, sound recordings, storyboards, wearables. Digital production as craft. The Bauhaus workshop model applied to digital making.</p>
+            <p>The WORKSHOP produces the artefacts that enter the world through thinkamigoEDITIONS and thinkamigoSTREAMS.</p>
+            <p>This Amigos space is part of thinkamigoWORKSHOP - tools and resources for the production process.</p>
+            <p><strong>Visual register:</strong> Digital, precise, dark mode, code aesthetic. VS Code, CSS, JSON, terminal as workbench.</p>
+          </div>
+        </div>
+
+        <div class="tax-connector">
+          <div class="tax-connector-line"></div>
+          <span>produces for</span>
+          <div class="tax-connector-line"></div>
+        </div>
+
+        <div class="sub-branches">
+
+          <div class="tax-node" id="node-editions" onclick="toggle('editions')">
+            <div class="tax-node-header">
+              <p class="tax-node-name">thinkamigoEDITIONS</p>
+              <span class="tax-node-chevron">&#9660;</span>
+            </div>
+            <p style="font-size:12px;font-weight:300;color:#666666;margin:4px 0 0;">The permanent record.</p>
+            <div class="tax-node-detail">
+              <span class="tax-accent">Publisher</span>
+              <p>Registered publisher. ISBN management, British Library legal deposit, NTU collaborations. Things that will exist in 100 years.</p>
+              <p>Eleven publications to date spanning exhibition catalogues, heritage guides, anthologies and research publications. Two forthcoming in 2026: Coaltime Days and A to Z of Coal Mining.</p>
+              <p><strong>Visual register:</strong> Warm, editorial, print-informed. The weight and considered quality of a well-designed publication.</p>
+            </div>
+          </div>
+
+          <div class="tax-node" id="node-streams" onclick="toggle('streams')">
+            <div class="tax-node-header">
+              <p class="tax-node-name">thinkamigoSTREAMS</p>
+              <span class="tax-node-chevron">&#9660;</span>
+            </div>
+            <p style="font-size:12px;font-weight:300;color:#666666;margin:4px 0 0;">The living presence.</p>
+            <div class="tax-node-detail">
+              <span class="tax-accent orange">Channels</span>
+              <p>Transient digital channels. Substack, Instagram, LinkedIn, Pinterest. Real-time audience engagement.</p>
+              <p>The STREAMS build the audience for the EDITIONS. EDITIONS is accretion - the permanent deposit. STREAMS is efflux - content in motion. Both are needed.</p>
+              <p><strong>Visual register:</strong> Fluid, dynamic, social-native. In motion rather than fixed.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="tip-box">
+    <strong>thinkOS is the connective tissue.</strong> A thinkINTELLIGENCE client is buying access to someone running thinkOS. thinkamigoWORKSHOP produces the artefacts that enter the world through thinkamigoEDITIONS and thinkamigoSTREAMS. The methodology underpins and enables everything else.
+  </div>
+
+
+</article>
+</div>
+</main>
+
+<footer id="main-footer"></footer>
+<script src="../loader.js"></script>
+
+<script>
+function toggle(id) {
+  var node = document.getElementById('node-' + id);
+  var isActive = node.classList.contains('active');
+  var allNodes = document.querySelectorAll('.tax-node');
+  allNodes.forEach(function(n) { n.classList.remove('active'); });
+  if (!isActive) {
+    node.classList.add('active');
+    node.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+</script>
+
+</body>
+</html>
