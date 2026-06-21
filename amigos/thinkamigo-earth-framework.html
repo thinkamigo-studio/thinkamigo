@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     THINKAMIGO EARTH FRAMEWORK v3.1
+     v1.0: Initial build — rectangular boxes, too ugly
+     v2.0: Circle nodes, pentagon layout — circles too small, text overflowing
+     v3.0: Larger circles r=72, tighter orbit, short spoke lines, text fits inside
+     v3.1: Circle text corrections — E, A, R, T, H descriptions updated
+     ============================================================ -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio thinkamigo — EARTH framework | Amigos</title>
+
+<link rel="stylesheet" href="../chassis.css">
+<link rel="stylesheet" href="../destination.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+.earth-intro {
+  font-size: 16px;
+  font-weight: 300;
+  color: #333333;
+  line-height: 1.7;
+  margin: 0 0 40px;
+}
+
+.org-chart-wrap {
+  margin: 40px auto;
+  max-width: 520px;
+}
+
+.org-svg {
+  display: block;
+  width: 100%;
+}
+
+.spoke-node, .hub-node {
+  cursor: pointer;
+}
+
+.spoke-node circle, .hub-node circle {
+  transition: filter 0.15s;
+}
+
+.spoke-node:hover circle, .hub-node:hover circle {
+  filter: brightness(0.92);
+}
+
+.spoke-node.active circle, .hub-node.active circle {
+  stroke-width: 3.5;
+}
+
+.node-letter {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.node-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.node-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  pointer-events: none;
+}
+
+.hub-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.hub-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  pointer-events: none;
+}
+
+.spoke-line {
+  stroke: #cccccc;
+  stroke-width: 1.5;
+}
+
+.detail-panel {
+  display: none;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #0054dc;
+  padding: 24px 28px;
+  margin-bottom: 12px;
+  background: #f9f9f9;
+}
+
+.detail-panel.active { display: block; }
+
+.detail-panel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.detail-panel-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0054dc;
+  margin: 0;
+}
+
+.detail-panel-close {
+  font-size: 13px;
+  font-weight: 300;
+  color: #888888;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.detail-panel-close:hover { color: #0054dc; }
+
+.detail-panel p {
+  font-size: 14px;
+  font-weight: 300;
+  color: #333333;
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+
+.detail-panel p:last-child { margin: 0; }
+
+.tax-accent {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  background: #0054dc;
+  padding: 2px 8px;
+  margin-bottom: 12px;
+}
+
+.tax-accent.orange { background: #ff6600; }
+
+.tip-box {
+  background: #f5f5ef;
+  border-left: 3px solid #ff6600;
+  padding: 14px 18px;
+  margin: 32px 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: #555555;
+  line-height: 1.7;
+}
+
+.tip-box strong {
+  font-weight: 500;
+  color: #333333;
+}
+</style>
+</head>
+<body class="content-page" data-base="../">
+
+<header id="main-nav"></header>
+
+<main class="editorial-post">
+<div class="paper-sheet">
+<article class="text-rail">
+
+  <p class="breadcrumb"><a href="index.html">Amigos</a> &gt; EARTH framework</p>
+
+  <header>
+    <h1>Studio thinkamigo</h1>
+    <div class="orange-rule"></div>
+    <h2>EARTH framework</h2>
+  </header>
+
+  <p class="earth-intro">Five interconnected domains — Enterprise, Arts, Research, Training, Heritage — organised around a single creative feedback loop. No domain operates in isolation. Select any domain to read more.</p>
+
+  <div class="org-chart-wrap">
+    <svg viewBox="0 0 510 490" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Spoke lines — short, hub to circle edge -->
+      <line class="spoke-line" x1="260" y1="193" x2="260" y2="175"/>
+      <line class="spoke-line" x1="328" y1="243" x2="346" y2="237"/>
+      <line class="spoke-line" x1="302" y1="323" x2="313" y2="338"/>
+      <line class="spoke-line" x1="218" y1="323" x2="207" y2="338"/>
+      <line class="spoke-line" x1="192" y1="243" x2="174" y2="237"/>
+
+      <!-- Hub -->
+      <g class="hub-node" id="box-hub" onclick="selectBox('hub')">
+        <circle cx="260" cy="265" r="72" fill="#f5f5ef" stroke="#aaaaaa" stroke-width="1.5"/>
+        <text class="hub-title" x="260" y="254" text-anchor="middle" fill="#0054dc">Studio thinkamigo</text>
+        <text class="hub-sub"   x="260" y="268" text-anchor="middle" fill="#666666">thinkOS</text>
+        <text class="hub-sub"   x="260" y="281" text-anchor="middle" fill="#666666">the through-line</text>
+        <text class="hub-sub"   x="260" y="294" text-anchor="middle" fill="#666666">storytelling connects all</text>
+      </g>
+
+      <!-- E — Enterprise -->
+      <g class="spoke-node" id="box-enterprise" onclick="selectBox('enterprise')">
+        <circle cx="260" cy="103" r="72" fill="#e8eefc" stroke="#0054dc" stroke-width="1.5"/>
+        <text class="node-letter" x="260" y="88"  text-anchor="middle" fill="#0054dc">E</text>
+        <text class="node-name"   x="260" y="107" text-anchor="middle" fill="#0C447C">Enterprise</text>
+        <text class="node-sub"    x="260" y="122" text-anchor="middle" fill="#185FA5">Government.</text>
+        <text class="node-sub"    x="260" y="135" text-anchor="middle" fill="#185FA5">Commercial.</text>
+      </g>
+
+      <!-- A — Arts -->
+      <g class="spoke-node" id="box-arts" onclick="selectBox('arts')">
+        <circle cx="414" cy="215" r="72" fill="#e6f5ef" stroke="#0F6E56" stroke-width="1.5"/>
+        <text class="node-letter" x="414" y="200" text-anchor="middle" fill="#0F6E56">A</text>
+        <text class="node-name"   x="414" y="219" text-anchor="middle" fill="#085041">Arts</text>
+        <text class="node-sub"    x="414" y="234" text-anchor="middle" fill="#0F6E56">Dawn of the Unread.</text>
+        <text class="node-sub"    x="414" y="247" text-anchor="middle" fill="#0F6E56">Seaside Sci-Fi.</text>
+      </g>
+
+      <!-- R — Research -->
+      <g class="spoke-node" id="box-research" onclick="selectBox('research')">
+        <circle cx="355" cy="396" r="72" fill="#fdf3e6" stroke="#854F0B" stroke-width="1.5"/>
+        <text class="node-letter" x="355" y="381" text-anchor="middle" fill="#854F0B">R</text>
+        <text class="node-name"   x="355" y="400" text-anchor="middle" fill="#633806">Research</text>
+        <text class="node-sub"    x="355" y="415" text-anchor="middle" fill="#854F0B">Government. Education.</text>
+        <text class="node-sub"    x="355" y="428" text-anchor="middle" fill="#854F0B">Commercial.</text>
+      </g>
+
+      <!-- T — Training -->
+      <g class="spoke-node" id="box-training" onclick="selectBox('training')">
+        <circle cx="165" cy="396" r="72" fill="#fbeaf5" stroke="#993556" stroke-width="1.5"/>
+        <text class="node-letter" x="165" y="381" text-anchor="middle" fill="#993556">T</text>
+        <text class="node-name"   x="165" y="400" text-anchor="middle" fill="#72243E">Training</text>
+        <text class="node-sub"    x="165" y="415" text-anchor="middle" fill="#993556">Workshops.</text>
+        <text class="node-sub"    x="165" y="428" text-anchor="middle" fill="#993556">Self-serve.</text>
+      </g>
+
+      <!-- H — Heritage -->
+      <g class="spoke-node" id="box-heritage" onclick="selectBox('heritage')">
+        <circle cx="106" cy="215" r="72" fill="#f5f5ef" stroke="#5F5E5A" stroke-width="1.5"/>
+        <text class="node-letter" x="106" y="200" text-anchor="middle" fill="#5F5E5A">H</text>
+        <text class="node-name"   x="106" y="219" text-anchor="middle" fill="#444441">Heritage</text>
+        <text class="node-sub"    x="106" y="234" text-anchor="middle" fill="#5F5E5A">Mine2Minds.</text>
+        <text class="node-sub"    x="106" y="247" text-anchor="middle" fill="#5F5E5A">MyTrail.</text>
+      </g>
+
+    </svg>
+  </div>
+
+  <div id="detail-panels">
+
+    <div class="detail-panel" id="panel-hub">
+      <div class="detail-panel-header">
+        <p class="detail-panel-name">Studio thinkamigo — thinkOS</p>
+        <button class="detail-panel-close" onclick="closePanel('hub')">Close &#x2715;</button>
+      </div>
+      <span class="tax-accent">The through-line</span>
+      <p>Studio thinkamigo activities are organised across five propositions. EARTH is the map of the territory — what the studio actually does, as distinct from how it is presented and priced through the brand taxonomy.</p>
+      <p>No project sits cleanly inside one domain. No domain operates in isolation. The through-line is storytelling. The creative feedback loop turns continuously — each domain informing and enriching the others.</p>
+      <p>thinkOS is the connective tissue. The methodology that runs beneath all five domains and makes the practice coherent across them.</p>
+    </div>
+
+    <div class="detail-panel" id="panel-enterprise">
+      <div class="detail-panel-header">
+        <p class="detail-panel-name">E — Enterprise</p>
+        <button class="detail-panel-close" onclick="closePanel('enterprise')">Close &#x2715;</button>
+      </div>
+      <span class="tax-accent">Commercial practice</span>
+      <p>Four decades of professional practice across government digital services, international commercial clients, broadcast post-production and early web development.</p>
+      <p>Current work includes contracting through Hanover Consulting to HMRC on the Multichannel Digital Tax Platform, GDS Research, Accessibility and Design assessor since 2021, and the think iS. design intelligence proposition.</p>
+      <p>Enterprise operates across two registers: UK government digital transformation (GDS framework, accessibility standards, user research at scale) and international commercial practice (Harneys Digital Branding Gold Award, Living Group).</p>
+      <p>The rigour of government service design sharpens the creative practice. The lateral thinking of the Arts domain makes the professional work distinctive in a field that defaults to process over insight.</p>
+    </div>
+
+    <div class="detail-panel" id="panel-arts">
+      <div class="detail-panel-header">
+        <p class="detail-panel-name">A — Arts</p>
+        <button class="detail-panel-close" onclick="closePanel('arts')">Close &#x2715;</button>
+      </div>
+      <span class="tax-accent orange">Creative practice</span>
+      <p>The domain where the artist drive finds its fullest expression — an active practitioner, not a service provider to artists. Validated by Arts Council England funding through collaborations combining creative vision with production capability.</p>
+      <p>The producer/creator duality is central: platform, audience, distribution and resources as producer; artistic drive, vision and the need to make as creator.</p>
+      <p>Active projects: Houdini Window (novel, ~90,000 words, near completion), Seaside Sci-Fi (transmedia platform, Morecambe Bay), Memory Theatre (D.H. Lawrence, NTU), Whatever People Say I Am (digital comics, NTU), Dawn of the Unread (Guardian Award, 2015).</p>
+    </div>
+
+    <div class="detail-panel" id="panel-research">
+      <div class="detail-panel-header">
+        <p class="detail-panel-name">R — Research</p>
+        <button class="detail-panel-close" onclick="closePanel('research')">Close &#x2715;</button>
+      </div>
+      <span class="tax-accent">Evidence-based practice</span>
+      <p>Currently anchored in Government Digital Service methodology, embedded within project teams inside UK government agencies. Seven years across two HMRC programmes through Capgemini and Equal Experts.</p>
+      <p>The discipline demanded — evidence-based decision making, structured research methodologies, stakeholder navigation in complex organisations — feeds directly into the creative feedback loop across all five domains.</p>
+      <p>Academic and heritage research runs in parallel: AHRC collaboration with Dr David Amos (A History of Coal Mining in 10 Objects, 2013), NTU collaborations across Memory Theatre and Whatever People Say I Am.</p>
+    </div>
+
+    <div class="detail-panel" id="panel-training">
+      <div class="detail-panel-header">
+        <p class="detail-panel-name">T — Training</p>
+        <button class="detail-panel-close" onclick="closePanel('training')">Close &#x2715;</button>
+      </div>
+      <span class="tax-accent orange">Untapped revenue stream</span>
+      <p>A domain in its own right — latent but with strong foundations across all five EARTH sectors. Every methodology developed across four decades is teachable: Six Sombreros, connections thinking, transmedia production pipeline, open source platform development, GDS service design.</p>
+      <p>Three formats: face-to-face workshops; remote delivery with downloadable resources; embedded training within funded projects where the production process itself becomes the curriculum.</p>
+      <p>The thinkIS Learn self-serve course is the scalable expression — no direct time required once built. The Seaside Sci-Fi model cuts across Arts, Heritage and Training simultaneously.</p>
+    </div>
+
+    <div class="detail-panel" id="panel-heritage">
+      <div class="detail-panel-header">
+        <p class="detail-panel-name">H — Heritage</p>
+        <button class="detail-panel-close" onclick="closePanel('heritage')">Close &#x2715;</button>
+      </div>
+      <span class="tax-accent">Personal and professional convergence</span>
+      <p>The domain where personal and professional converge most completely. The background — mining village, counterculture, Fine Art formation — is not separate from the heritage work. It is the heritage work.</p>
+      <p>Five strands: Mine2Minds CIC (coalfield regeneration, est. 2015 with Dr David Amos); MyTrail (location-aware digital trails — Robin Hood, D.H. Lawrence, Pleasley Pit); thinkamigoEDITIONS (eleven publications, British Library registered); print heritage testimony; heritage workshops (museum curators, community groups, academic institutions).</p>
+      <p>Heritage feeds everything else. Iconographic research feeds EDITIONS. Community connections feed Arts Council bids. The trails strand feeds Training workshops. Mine2Minds reframed around green transition has a funding future that the elegiac heritage model does not.</p>
+    </div>
+
+  </div>
+
+  <div class="tip-box">
+    <strong>The through-line is storytelling.</strong> No project sits cleanly inside one domain. The Fine Art formation and the professional practice exist in a symbiotic relationship — each continuously informing and enriching the other through a creative feedback loop that has never stopped turning.
+  </div>
+
+</article>
+</div>
+</main>
+
+<footer id="main-footer"></footer>
+<script src="../loader.js"></script>
+
+<script>
+function selectBox(id) {
+  document.querySelectorAll('.spoke-node, .hub-node').forEach(function(b) {
+    b.classList.remove('active');
+  });
+  document.querySelectorAll('.detail-panel').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  document.getElementById('box-' + id).classList.add('active');
+  var panel = document.getElementById('panel-' + id);
+  panel.classList.add('active');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function closePanel(id) {
+  document.getElementById('box-' + id).classList.remove('active');
+  document.getElementById('panel-' + id).classList.remove('active');
+}
+</script>
+
+</body>
+</html>
