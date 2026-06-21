@@ -16,7 +16,7 @@
   font-weight: 300;
   color: #333333;
   line-height: 1.7;
-  margin: 0 0 32px;
+  margin: 0 0 40px;
 }
 
 .taxonomy-wrap {
@@ -25,20 +25,76 @@
 
 .tax-node {
   border: 1px solid #dddddd;
-  padding: 20px 24px;
-  margin-bottom: 2px;
+  padding: 24px 28px;
+  margin-bottom: 12px;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
   position: relative;
+  background: #ffffff;
 }
 
 .tax-node:hover {
   border-color: #0054dc;
+  background: #f9f9f9;
 }
 
 .tax-node.active {
-  border-color: #0054dc;
   border-left: 4px solid #0054dc;
+}
+
+.tax-node-studio {
+  background: #f5f5ef;
+  border-color: #cccccc;
+}
+
+.tax-node-studio.active {
+  border-color: #0054dc;
+}
+
+.thinkos-node {
+  background: #e8eefc;
+  border-left: 4px solid #0054dc;
+  border-color: #0054dc;
+}
+
+.thinkos-node.active {
+  background: #dce6fb;
+}
+
+.tax-node-intelligence {
+  background: #e8eefc;
+  border-color: #b3c6f0;
+}
+
+.tax-node-intelligence.active {
+  border-color: #0054dc;
+}
+
+.tax-node-workshop {
+  background: #e6f5ef;
+  border-color: #a8d9c3;
+}
+
+.tax-node-workshop.active {
+  border-color: #0054dc;
+}
+
+.tax-node-editions {
+  background: #fdf3e6;
+  border-color: #f0cc99;
+}
+
+.tax-node-editions.active {
+  border-color: #ff6600;
+}
+
+.tax-node-streams {
+  background: #fdf3e6;
+  border-color: #f0cc99;
+}
+
+.tax-node-streams.active {
+  border-color: #ff6600;
 }
 
 .tax-node-header {
@@ -76,8 +132,8 @@
 
 .tax-node-detail {
   display: none;
-  margin-top: 16px;
-  padding-top: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
   border-top: 1px solid #eeeeea;
 }
 
@@ -116,7 +172,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 24px;
+  padding: 12px 24px;
   font-size: 12px;
   font-weight: 300;
   color: #888888;
@@ -143,20 +199,20 @@
 .branches {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  margin-top: 2px;
+  gap: 12px;
+  margin-top: 12px;
 }
 
 .branch-column {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 12px;
 }
 
 .sub-branches {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2px;
+  gap: 12px;
 }
 
 .tip-box {
@@ -208,7 +264,7 @@
 
   <div class="taxonomy-wrap">
 
-    <div class="tax-node" id="node-studio" onclick="toggle('studio')">
+    <div class="tax-node tax-node-studio" id="node-studio" onclick="toggle('studio')">
       <div class="tax-node-header">
         <p class="tax-node-name">Studio thinkamigo</p>
         <p class="tax-node-role">The practice. The atelier umbrella.</p>
@@ -253,7 +309,7 @@
 
       <div class="branch-column">
 
-        <div class="tax-node" id="node-intelligence" onclick="toggle('intelligence')">
+        <div class="tax-node tax-node-intelligence" id="node-intelligence" onclick="toggle('intelligence')">
           <div class="tax-node-header">
             <p class="tax-node-name">thinkINTELLIGENCE</p>
             <p class="tax-node-role">The premium service.</p>
@@ -272,7 +328,7 @@
 
       <div class="branch-column">
 
-        <div class="tax-node" id="node-workshop" onclick="toggle('workshop')">
+        <div class="tax-node tax-node-workshop" id="node-workshop" onclick="toggle('workshop')">
           <div class="tax-node-header">
             <p class="tax-node-name">thinkamigoWORKSHOP</p>
             <p class="tax-node-role">The making place.</p>
@@ -295,7 +351,7 @@
 
         <div class="sub-branches">
 
-          <div class="tax-node" id="node-editions" onclick="toggle('editions')">
+          <div class="tax-node tax-node-editions" id="node-editions" onclick="toggle('editions')">
             <div class="tax-node-header">
               <p class="tax-node-name">thinkamigoEDITIONS</p>
               <span class="tax-node-chevron">&#9660;</span>
@@ -309,7 +365,7 @@
             </div>
           </div>
 
-          <div class="tax-node" id="node-streams" onclick="toggle('streams')">
+          <div class="tax-node tax-node-streams" id="node-streams" onclick="toggle('streams')">
             <div class="tax-node-header">
               <p class="tax-node-name">thinkamigoSTREAMS</p>
               <span class="tax-node-chevron">&#9660;</span>
