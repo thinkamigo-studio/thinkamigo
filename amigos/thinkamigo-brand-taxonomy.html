@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     THINKAMIGO BRAND TAXONOMY v1.3
+     THINKAMIGO BRAND TAXONOMY v1.5
      v1.0: Initial build — six-node accordion taxonomy
      v1.1: EARTH framework link removed — navigation handled by Amigos landing page cards
      v1.2: Spacing pass — breathing room added to nodes, grids and connectors. Background colours added to all nodes.
      v1.3: Node header layout fixed — name and role now stack vertically inside all nodes. Overflow resolved.
+     v1.4: Uniform box widths — EDITIONS and STREAMS moved to full-width grid below branches.
+     v1.5: All boxes constrained to same max-width and centred on page.
      ============================================================ -->
 <html lang="en">
 <head>
@@ -28,7 +30,12 @@
 }
 
 .taxonomy-wrap {
-  margin: 40px 0;
+  margin: 40px auto;
+  max-width: 640px;
+}
+
+.tax-node-full {
+  width: 100%;
 }
 
 .tax-node {
@@ -278,7 +285,7 @@
 
   <div class="taxonomy-wrap">
 
-    <div class="tax-node tax-node-studio" id="node-studio" onclick="toggle('studio')">
+    <div class="tax-node tax-node-studio tax-node-full" id="node-studio" onclick="toggle('studio')">
       <div class="tax-node-header">
         <div class="tax-node-title"><p class="tax-node-name">Studio thinkamigo</p><p class="tax-node-role">The practice. The atelier umbrella.</p></div>
         <span class="tax-node-chevron">&#9660;</span>
@@ -297,7 +304,7 @@
       <div class="tax-connector-line"></div>
     </div>
 
-    <div class="tax-node thinkos-node" id="node-thinkos" onclick="toggle('thinkos')">
+    <div class="tax-node thinkos-node tax-node-full" id="node-thinkos" onclick="toggle('thinkos')">
       <div class="tax-node-header">
         <div class="tax-node-title"><p class="tax-node-name">thinkOS</p><p class="tax-node-role">The methodology. The connective tissue.</p></div>
         <span class="tax-node-chevron">&#9660;</span>
@@ -353,48 +360,48 @@
           </div>
         </div>
 
-        <div class="tax-connector">
-          <div class="tax-connector-line"></div>
-          <span>produces for</span>
-          <div class="tax-connector-line"></div>
-        </div>
+      </div>
 
-        <div class="sub-branches">
+    </div>
 
-          <div class="tax-node tax-node-editions" id="node-editions" onclick="toggle('editions')">
-            <div class="tax-node-header">
-              <div class="tax-node-title">
-                <p class="tax-node-name">thinkamigoEDITIONS</p>
-                <p class="tax-node-role">The permanent record.</p>
-              </div>
-              <span class="tax-node-chevron">&#9660;</span>
-            </div>
-            <div class="tax-node-detail">
-              <span class="tax-accent">Publisher</span>
-              <p>Registered publisher. ISBN management, British Library legal deposit, NTU collaborations. Things that will exist in 100 years.</p>
-              <p>Eleven publications to date spanning exhibition catalogues, heritage guides, anthologies and research publications. Two forthcoming in 2026: Coaltime Days and A to Z of Coal Mining.</p>
-              <p><strong>Visual register:</strong> Warm, editorial, print-informed. The weight and considered quality of a well-designed publication.</p>
-            </div>
+    <div class="tax-connector">
+      <div class="tax-connector-line"></div>
+      <span>WORKSHOP produces for</span>
+      <div class="tax-connector-line"></div>
+    </div>
+
+    <div class="sub-branches">
+
+      <div class="tax-node tax-node-editions" id="node-editions" onclick="toggle('editions')">
+        <div class="tax-node-header">
+          <div class="tax-node-title">
+            <p class="tax-node-name">thinkamigoEDITIONS</p>
+            <p class="tax-node-role">The permanent record.</p>
           </div>
-
-          <div class="tax-node tax-node-streams" id="node-streams" onclick="toggle('streams')">
-            <div class="tax-node-header">
-              <div class="tax-node-title">
-                <p class="tax-node-name">thinkamigoSTREAMS</p>
-                <p class="tax-node-role">The living presence.</p>
-              </div>
-              <span class="tax-node-chevron">&#9660;</span>
-            </div>
-            <div class="tax-node-detail">
-              <span class="tax-accent orange">Channels</span>
-              <p>Transient digital channels. Substack, Instagram, LinkedIn, Pinterest. Real-time audience engagement.</p>
-              <p>The STREAMS build the audience for the EDITIONS. EDITIONS is accretion - the permanent deposit. STREAMS is efflux - content in motion. Both are needed.</p>
-              <p><strong>Visual register:</strong> Fluid, dynamic, social-native. In motion rather than fixed.</p>
-            </div>
-          </div>
-
+          <span class="tax-node-chevron">&#9660;</span>
         </div>
+        <div class="tax-node-detail">
+          <span class="tax-accent">Publisher</span>
+          <p>Registered publisher. ISBN management, British Library legal deposit, NTU collaborations. Things that will exist in 100 years.</p>
+          <p>Eleven publications to date spanning exhibition catalogues, heritage guides, anthologies and research publications. Two forthcoming in 2026: Coaltime Days and A to Z of Coal Mining.</p>
+          <p><strong>Visual register:</strong> Warm, editorial, print-informed. The weight and considered quality of a well-designed publication.</p>
+        </div>
+      </div>
 
+      <div class="tax-node tax-node-streams" id="node-streams" onclick="toggle('streams')">
+        <div class="tax-node-header">
+          <div class="tax-node-title">
+            <p class="tax-node-name">thinkamigoSTREAMS</p>
+            <p class="tax-node-role">The living presence.</p>
+          </div>
+          <span class="tax-node-chevron">&#9660;</span>
+        </div>
+        <div class="tax-node-detail">
+          <span class="tax-accent orange">Channels</span>
+          <p>Transient digital channels. Substack, Instagram, LinkedIn, Pinterest. Real-time audience engagement.</p>
+          <p>The STREAMS build the audience for the EDITIONS. EDITIONS is accretion - the permanent deposit. STREAMS is efflux - content in motion. Both are needed.</p>
+          <p><strong>Visual register:</strong> Fluid, dynamic, social-native. In motion rather than fixed.</p>
+        </div>
       </div>
 
     </div>
