@@ -24,7 +24,7 @@
 /* --- 1. THE BRANDING INTRO BAR --- */
 .branding-intro-bar { 
     background-color: var(--brand-blue); 
-    padding: 40px 0; 
+    padding: 16px 0; 
     width: 100%; 
     clear: both; 
     display: block;
@@ -37,13 +37,13 @@
     align-items: center; 
     max-width: 1250px; 
     margin: 0 auto; 
-    padding: 0 20px;
+    padding: 0 0px;
     box-sizing: border-box;
 }
 
 .hero-logotype { grid-column: span 2; }
 .hero-logotype img { width: 100%; height: auto; display: block; }
-.hero-statement { grid-column: span 2; text-align: center; padding: 0 10px; }
+.hero-statement { grid-column: span 2; text-align: center; padding: 0 40px; }
 .hero-action { grid-column: span 1; display: flex; justify-content: flex-end; }
 
 .hero-statement h1, .branding-text { 
