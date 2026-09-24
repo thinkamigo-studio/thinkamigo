@@ -1,5 +1,5 @@
 /* ============================================================
-   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.68)
+   THINKAMIGO HOME PORTAL - FULL STABLE RESTORE (v1.69)
    Covers: Branding Bar, Stone/Sand Grids, Card Engine
    Architecture: 1250px Wide Horizon | 15px Universal Rhythm
    v1.66: Branding bar flex fix. align-items: stretch on
@@ -19,6 +19,11 @@
           the hamburger gap fix in chassis.css v6.7.
           Breakpoint raised from 1024px to 1080px to ensure
           iPad Mini landscape is cleanly inside the override.
+   v1.69: Added .substack-header - H2, listen link and
+          graphic above the Substack tiles in the sand strip.
+          White graphic sits immediately right of the text block.
+          Header class renamed .strip-header and reused for
+          the Blog archive row, 30px above it.
    ============================================================ */
 
 /* --- 1. THE BRANDING INTRO BAR --- */
@@ -105,6 +110,22 @@
     align-items: stretch;
 }
 
+/* --- STRIP HEADERS (SAND STRIP): SUBSTACK AND BLOG ARCHIVE --- */
+.strip-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1250px;
+    margin: 0 auto 15px auto;
+    box-sizing: border-box;
+}
+.strip-header h2 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 500; color: #0054dc; margin: 0 0 4px 0; }
+.strip-header p { font-family: 'Poppins', sans-serif; font-size: 16px; color: #333333; margin: 0; }
+.strip-header p a { color: #0054dc; text-decoration: none; }
+.strip-header p a:hover { text-decoration: underline; }
+.blog-grid + .strip-header { margin-top: 30px; }
+.substack-header-graphic { height: 44px; width: auto; display: block; margin-left: 20px; }
+
 /* --- 3. THE CARD ENGINE (ALIGNED & STATIC) --- */
 .home-hero-grid a, .blog-grid a { 
     display: flex; 
@@ -171,7 +192,7 @@
 
 /* --- 8. RESPONSIVE BREAKPOINTS --- */
 @media (max-width: 1280px) {
-    .home-hero-grid, .blog-grid { padding: 0 20px; }
+    .home-hero-grid, .blog-grid, .strip-header { padding: 0 20px; }
 }
 
 @media (max-width: 1080px) {
@@ -197,6 +218,7 @@
     .hero-full-width-wrapper { padding: 15px 0; }
     .blog-full-width-wrapper { padding: 15px 0; }
 
+    .strip-header { padding: 0; }
     .home-hero-grid, .blog-grid { 
         grid-template-columns: repeat(2, 1fr); 
         gap: 15px; 
@@ -210,6 +232,8 @@
 
 @media (max-width: 600px) {
     .home-hero-grid, .blog-grid { grid-template-columns: 1fr; }
+    .strip-header h2 { font-size: 20px; }
+    .substack-header-graphic { height: 36px; margin-left: 15px; }
     .featured-card { grid-column: span 1; }
     .awards-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
 }
