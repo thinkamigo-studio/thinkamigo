@@ -19,11 +19,9 @@
           the hamburger gap fix in chassis.css v6.7.
           Breakpoint raised from 1024px to 1080px to ensure
           iPad Mini landscape is cleanly inside the override.
-   v1.69: Added .substack-header - H2, listen link and
-          graphic above the Substack tiles in the sand strip.
-          White graphic sits immediately right of the text block.
-          Header class renamed .strip-header and reused for
-          the Blog archive row, 30px above it.
+   v1.69: Added .strip-header - H2 and one line of text above
+          the Substack tiles in the sand strip, reused for the
+          Blog archive row with 30px above it.
    ============================================================ */
 
 /* --- 1. THE BRANDING INTRO BAR --- */
@@ -124,7 +122,6 @@
 .strip-header p a { color: #0054dc; text-decoration: none; }
 .strip-header p a:hover { text-decoration: underline; }
 .blog-grid + .strip-header { margin-top: 30px; }
-.substack-header-graphic { height: 44px; width: auto; display: block; margin-left: 20px; }
 
 /* --- 3. THE CARD ENGINE (ALIGNED & STATIC) --- */
 .home-hero-grid a, .blog-grid a { 
@@ -233,7 +230,6 @@
 @media (max-width: 600px) {
     .home-hero-grid, .blog-grid { grid-template-columns: 1fr; }
     .strip-header h2 { font-size: 20px; }
-    .substack-header-graphic { height: 36px; margin-left: 15px; }
     .featured-card { grid-column: span 1; }
     .awards-grid { grid-template-columns: repeat(4, 1fr); gap: 10px; }
 }
